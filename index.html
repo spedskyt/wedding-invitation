@@ -1,59 +1,150 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>우리의 결혼식에 초대합니다</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf3ed">
+  <meta name="description" content="태열과 현아의 결혼식에 초대합니다. 2027년 2월 20일 오후 1시 30분, WI컨벤션센터 I홀">
+  <title>태열 ♥ 현아 | Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: #f8f5ef;
-      color: #554c43;
-      font-family: "Noto Serif KR", serif;
-      text-align: center;
-    }
-    main {
-      max-width: 480px;
-      min-height: 100vh;
-      margin: auto;
-      padding: 90px 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .line {
-      width: 40px;
-      border-top: 1px solid #b7a58e;
-      margin: 30px auto;
-    }
-    h1 {
-      font-size: 28px;
-      font-weight: 400;
-      line-height: 1.7;
-    }
-    p {
-      font-size: 15px;
-      line-height: 2;
-    }
-    .date {
-      margin-top: 35px;
-      letter-spacing: 2px;
+    :root { --ink:#514239; --muted:#88776d; --line:#e8d8cc; --paper:#fffaf6; --accent:#b58c77; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:#f8eee7; font-family:"Noto Sans KR",sans-serif; font-weight:300; }
+    .page { width:min(100%, 760px); margin:0 auto; overflow:hidden; background:var(--paper); box-shadow:0 0 32px #6c4b3012; }
+    .hero { position:relative; min-height:590px; display:flex; align-items:flex-start; background:linear-gradient(90deg,#f9eee7 0%,#f9eee7dd 33%,#f9eee700 70%),url("assets/hero-placeholder.jpg") center/cover no-repeat; }
+    .hero-copy { position:relative; z-index:1; width:54%; padding:65px 0 30px 8%; }
+    .eyebrow { letter-spacing:.32em; font-size:11px; margin:0 0 18px; }
+    h1 { font:400 clamp(42px,8vw,66px)/.98 "Gowun Batang",serif; margin:0; letter-spacing:-.04em; }
+    .and { font:italic 30px "Gowun Batang",serif; margin:8px 0; }
+    .hero-date { margin-top:40px; font-size:14px; line-height:1.9; }
+    .script { margin-top:22px; font:italic 25px "Gowun Batang",serif; }
+    section { padding:54px 7%; text-align:center; }
+    .section-kicker { display:flex; align-items:center; gap:18px; justify-content:center; letter-spacing:.38em; font-size:12px; margin-bottom:18px; }
+    .section-kicker:before,.section-kicker:after { content:""; height:1px; background:var(--line); flex:1; }
+    h2 { font:400 27px/1.5 "Gowun Batang",serif; margin:0 0 14px; }
+    .intro p { line-height:2; font-size:14px; margin:4px 0; }
+    .heart { font-size:22px; margin-top:10px; }
+    .info-card { margin:0 6%; padding:22px 24px; display:grid; grid-template-columns:1fr 1fr; gap:20px; background:#fff8f3; border:1px solid #f0e3da; border-radius:15px; box-shadow:0 5px 18px #795c4410; text-align:left; }
+    .info-card > div + div { border-left:1px solid var(--line); padding-left:22px; }
+    .info-label { color:var(--muted); font-size:13px; margin-bottom:8px; }
+    .info-value { font-size:15px; line-height:1.8; font-weight:500; }
+    .gallery { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+    .gallery img { display:block; width:100%; aspect-ratio:1.45; object-fit:cover; border-radius:12px; }
+    .note { font-size:13px; color:var(--muted); line-height:1.8; }
+    .map-panel { background:#f8eee7; border:1px solid var(--line); border-radius:15px; padding:28px 18px; }
+    .venue-name { font:700 21px "Gowun Batang",serif; margin-bottom:8px; }
+    .map-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:20px; }
+    .map-actions a { display:inline-block; text-decoration:none; color:#59483e; background:#fffaf6; border:1px solid var(--line); border-radius:30px; padding:12px 20px; font-size:13px; }
+    .account-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; text-align:left; }
+    .account { padding:20px 16px; border-radius:15px; background:#f4edf2; border:1px solid #e8dce6; }
+    .account.bride { background:#fff0eb; border-color:#f3ddd4; }
+    .account h3 { text-align:center; margin:0 0 14px; font-size:17px; color:#4665a6; font-weight:500; }
+    .account.bride h3 { color:#b65c49; }
+    .account p { font-size:13px; line-height:1.8; margin:0; text-align:center; color:#76665d; }
+    .account button { display:block; margin:14px auto 0; border:0; border-radius:22px; padding:9px 15px; background:#fffaf6; color:var(--ink); font:inherit; font-size:12px; }
+    footer { padding:36px 20px 60px; text-align:center; background:linear-gradient(#fffaf6,#f8eee7); }
+    footer .thanks { font:italic 38px "Gowun Batang",serif; margin-bottom:12px; }
+    footer p { font-size:13px; color:var(--muted); }
+    .small { font-size:11px; color:#9b8a80; }
+    @media (max-width:560px) {
+      .hero { min-height:500px; background-position:56% center; }
+      .hero-copy { width:58%; padding:54px 0 20px 7%; }
+      .hero-date { margin-top:30px; font-size:12px; }
+      .script { font-size:21px; }
+      section { padding:42px 6%; }
+      .info-card { margin:0 5%; padding:17px 14px; gap:12px; }
+      .info-card > div + div { padding-left:12px; }
+      .info-value { font-size:13px; }
+      .account-grid { grid-template-columns:1fr; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <p>OUR WEDDING DAY</p>
-    <div class="line"></div>
-    <h1>서로의 하루가 되어<br>평생을 함께하겠습니다.</h1>
-    <p>저희 두 사람의 새로운 시작에<br>소중한 분들을 초대합니다.</p>
-    <div class="line"></div>
-    <p class="date">2027. 02. 20 SATURDAY</p>
-    <p>오후 1시 30분</p>
-    <div class="line"></div>
-    <p>저희 결혼식에 초대합니다.</p>
+  <main class="page">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">THE WEDDING OF</p>
+        <h1>Taeyeol</h1>
+        <div class="and">and</div>
+        <h1>Hyunah</h1>
+        <div class="hero-date">2027. 02. 20 SAT 1:30 PM<br>WI컨벤션센터 I홀</div>
+        <div class="script">Our Wedding Day ♡</div>
+      </div>
+    </header>
+
+    <section class="intro">
+      <div class="section-kicker">INVITATION</div>
+      <h2>저희 두 사람,<br>결혼합니다.</h2>
+      <p>서로가 걸어온 길을 이제는 함께 걷고자 합니다.</p>
+      <p>저희의 새로운 시작을 축복해 주세요.</p>
+      <div class="heart">♡</div>
+    </section>
+
+    <div class="info-card">
+      <div>
+        <div class="info-label">▦　예식 일시</div>
+        <div class="info-value">2027년 2월 20일 (토)<br>오후 1시 30분</div>
+      </div>
+      <div>
+        <div class="info-label">⌖　예식 장소</div>
+        <div class="info-value">WI컨벤션센터 I홀</div>
+        <div class="small">수원월드컵경기장 내</div>
+      </div>
+    </div>
+
+    <section>
+      <div class="section-kicker">GALLERY</div>
+      <h2>우리의 소중한 순간들 ♡</h2>
+      <div class="gallery">
+        <img src="assets/gallery-1.jpg" alt="커플 사진 예시">
+        <img src="assets/gallery-2.jpg" alt="반려견 피트 사진 예시">
+        <img src="assets/gallery-3.jpg" alt="커플 사진 예시">
+        <img src="assets/gallery-4.jpg" alt="손을 잡은 커플 사진 예시">
+      </div>
+      <p class="note">사진은 현재 디자인 예시 이미지입니다. 실제 사진으로 교체할 예정입니다.</p>
+    </section>
+
+    <section>
+      <div class="section-kicker">LOCATION</div>
+      <h2>오시는 길</h2>
+      <p class="note">WI컨벤션센터 I홀 · 수원월드컵경기장</p>
+      <div class="map-panel">
+        <div class="venue-name">WI컨벤션센터 I홀</div>
+        <p class="note">아래 지도 앱에서 예식 장소를 확인하실 수 있습니다.</p>
+        <div class="map-actions">
+          <a href="https://map.naver.com/p/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버 지도 보기 ↗</a>
+          <a href="https://map.kakao.com/link/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">카카오맵 보기 ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-kicker">GIFT</div>
+      <h2>마음 전하실 곳</h2>
+      <p class="note">축하의 마음을 전해주시면, 큰 기쁨으로 간직하겠습니다.</p>
+      <div class="account-grid">
+        <div class="account">
+          <h3>신랑 측</h3>
+          <p>아버지 · 은행명 / 계좌번호<br>어머니 · 은행명 / 계좌번호</p>
+          <p class="small">실제 계좌정보 입력 예정</p>
+        </div>
+        <div class="account bride">
+          <h3>신부 측</h3>
+          <p>아버지 · 은행명 / 계좌번호<br>어머니 · 은행명 / 계좌번호</p>
+          <p class="small">실제 계좌정보 입력 예정</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="thanks">Thank You ♡</div>
+      <p>언제나, 고맙습니다 ♡</p>
+      <p class="small">태열 ♥ 현아 · 2027.02.20</p>
+    </footer>
   </main>
 </body>
 </html>
