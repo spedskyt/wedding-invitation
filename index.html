@@ -3,148 +3,209 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fbf3ed">
+  <meta name="theme-color" content="#f7f3ed">
   <meta name="description" content="태열과 현아의 결혼식에 초대합니다. 2027년 2월 20일 오후 1시 30분, WI컨벤션센터 I홀">
-  <title>태열 ♥ 현아 | Wedding Invitation</title>
+  <title>태열 & 현아 — Wedding Invitation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    :root { --ink:#514239; --muted:#88776d; --line:#e8d8cc; --paper:#fffaf6; --accent:#b58c77; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; color:var(--ink); background:#f8eee7; font-family:"Noto Sans KR",sans-serif; font-weight:300; }
-    .page { width:min(100%, 760px); margin:0 auto; overflow:hidden; background:var(--paper); box-shadow:0 0 32px #6c4b3012; }
-    .hero { position:relative; min-height:590px; display:flex; align-items:flex-start; background:linear-gradient(90deg,#f9eee7 0%,#f9eee7dd 33%,#f9eee700 70%),url("assets/hero-placeholder.jpg") center/cover no-repeat; }
-    .hero-copy { position:relative; z-index:1; width:54%; padding:65px 0 30px 8%; }
-    .eyebrow { letter-spacing:.32em; font-size:11px; margin:0 0 18px; }
-    h1 { font:400 clamp(42px,8vw,66px)/.98 "Gowun Batang",serif; margin:0; letter-spacing:-.04em; }
-    .and { font:italic 30px "Gowun Batang",serif; margin:8px 0; }
-    .hero-date { margin-top:40px; font-size:14px; line-height:1.9; }
-    .script { margin-top:22px; font:italic 25px "Gowun Batang",serif; }
-    section { padding:54px 7%; text-align:center; }
-    .section-kicker { display:flex; align-items:center; gap:18px; justify-content:center; letter-spacing:.38em; font-size:12px; margin-bottom:18px; }
-    .section-kicker:before,.section-kicker:after { content:""; height:1px; background:var(--line); flex:1; }
-    h2 { font:400 27px/1.5 "Gowun Batang",serif; margin:0 0 14px; }
-    .intro p { line-height:2; font-size:14px; margin:4px 0; }
-    .heart { font-size:22px; margin-top:10px; }
-    .info-card { margin:0 6%; padding:22px 24px; display:grid; grid-template-columns:1fr 1fr; gap:20px; background:#fff8f3; border:1px solid #f0e3da; border-radius:15px; box-shadow:0 5px 18px #795c4410; text-align:left; }
-    .info-card > div + div { border-left:1px solid var(--line); padding-left:22px; }
-    .info-label { color:var(--muted); font-size:13px; margin-bottom:8px; }
-    .info-value { font-size:15px; line-height:1.8; font-weight:500; }
-    .gallery { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
-    .gallery img { display:block; width:100%; aspect-ratio:1.45; object-fit:cover; border-radius:12px; }
-    .note { font-size:13px; color:var(--muted); line-height:1.8; }
-    .map-panel { background:#f8eee7; border:1px solid var(--line); border-radius:15px; padding:28px 18px; }
-    .venue-name { font:700 21px "Gowun Batang",serif; margin-bottom:8px; }
-    .map-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:20px; }
-    .map-actions a { display:inline-block; text-decoration:none; color:#59483e; background:#fffaf6; border:1px solid var(--line); border-radius:30px; padding:12px 20px; font-size:13px; }
-    .account-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; text-align:left; }
-    .account { padding:20px 16px; border-radius:15px; background:#f4edf2; border:1px solid #e8dce6; }
-    .account.bride { background:#fff0eb; border-color:#f3ddd4; }
-    .account h3 { text-align:center; margin:0 0 14px; font-size:17px; color:#4665a6; font-weight:500; }
-    .account.bride h3 { color:#b65c49; }
-    .account p { font-size:13px; line-height:1.8; margin:0; text-align:center; color:#76665d; }
-    .account button { display:block; margin:14px auto 0; border:0; border-radius:22px; padding:9px 15px; background:#fffaf6; color:var(--ink); font:inherit; font-size:12px; }
-    footer { padding:36px 20px 60px; text-align:center; background:linear-gradient(#fffaf6,#f8eee7); }
-    footer .thanks { font:italic 38px "Gowun Batang",serif; margin-bottom:12px; }
-    footer p { font-size:13px; color:var(--muted); }
-    .small { font-size:11px; color:#9b8a80; }
-    @media (max-width:560px) {
-      .hero { min-height:500px; background-position:56% center; }
-      .hero-copy { width:58%; padding:54px 0 20px 7%; }
-      .hero-date { margin-top:30px; font-size:12px; }
-      .script { font-size:21px; }
-      section { padding:42px 6%; }
-      .info-card { margin:0 5%; padding:17px 14px; gap:12px; }
-      .info-card > div + div { padding-left:12px; }
-      .info-value { font-size:13px; }
-      .account-grid { grid-template-columns:1fr; }
+    :root{--paper:#f7f3ed;--cream:#eee7dc;--ink:#39352f;--muted:#82796d;--line:#dcd2c4;--accent:#9d8067;--white:#fffdf9}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    .site{width:min(100%,760px);margin:auto;background:var(--paper);overflow:hidden}
+    .topline{height:5px;background:linear-gradient(90deg,#d8c6b0,#f6eee3,#b99e82)}
+    .hero{min-height:780px;position:relative;display:flex;align-items:flex-end;justify-content:center;text-align:center;padding:72px 24px 62px;background:linear-gradient(180deg,rgba(30,25,20,.04) 0%,rgba(30,25,20,.02) 38%,rgba(30,25,20,.58) 100%),url("assets/hero-placeholder.jpg") center/cover no-repeat;color:#fff}
+    .hero:before{content:"";position:absolute;inset:18px;border:1px solid rgba(255,255,255,.55);pointer-events:none}
+    .hero-copy{position:relative;z-index:1;text-shadow:0 2px 18px #21170e55}
+    .eyebrow{font-size:10px;letter-spacing:.42em;margin:0 0 24px}
+    h1{font:400 clamp(45px,10vw,76px)/.98 "DM Serif Display","Gowun Batang",serif;letter-spacing:.015em;margin:0}
+    .amp{font:italic 27px "DM Serif Display",serif;margin:8px 0}
+    .hero-date{font:400 12px/2 "Noto Sans KR",sans-serif;letter-spacing:.12em;margin-top:30px}
+    .hero-venue{font-size:11px;letter-spacing:.12em;margin-top:5px}
+    .scroll-cue{display:inline-flex;flex-direction:column;gap:8px;align-items:center;margin-top:38px;font-size:9px;letter-spacing:.3em}
+    .scroll-cue:after{content:"";width:1px;height:34px;background:#ffffffaa}
+    section{padding:84px 9%;text-align:center}
+    .kicker{font:italic 19px "DM Serif Display",serif;color:var(--accent);letter-spacing:.08em;margin-bottom:13px}
+    .rule{width:34px;height:1px;background:var(--accent);margin:0 auto 25px}
+    h2{font:400 clamp(25px,5vw,32px)/1.55 "Gowun Batang",serif;margin:0 0 22px;letter-spacing:-.045em}
+    .copy{font-size:13px;line-height:2.25;color:#71685e}
+    .names{font:400 17px "Gowun Batang",serif;margin-top:30px;line-height:2}
+    .names span{font-size:12px;color:var(--muted);padding:0 9px}
+    .date-band{background:var(--cream);padding:58px 8%;text-align:center}
+    .date-title{font:italic 22px "DM Serif Display",serif;color:var(--accent);margin-bottom:14px}
+    .date-main{font:400 19px "Gowun Batang",serif;line-height:1.9}
+    .date-sub{font-size:11px;letter-spacing:.16em;color:var(--muted);margin-top:9px}
+    .countdown{display:flex;justify-content:center;gap:22px;margin-top:28px}
+    .countdown div{min-width:48px}
+    .countdown strong{display:block;font:400 27px "DM Serif Display",serif;color:var(--ink)}
+    .countdown span{font-size:9px;letter-spacing:.16em;color:var(--muted)}
+    .story{background:var(--white)}
+    .timeline{max-width:420px;margin:38px auto 0;text-align:left;position:relative}
+    .timeline:before{content:"";position:absolute;left:74px;top:5px;bottom:8px;width:1px;background:var(--line)}
+    .moment{display:grid;grid-template-columns:58px 1fr;gap:32px;position:relative;padding:0 0 30px}
+    .moment:before{content:"";position:absolute;left:70px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:3px solid var(--white)}
+    .moment time{font:italic 15px "DM Serif Display",serif;color:var(--accent)}
+    .moment p{margin:0;font-size:12px;line-height:1.9;color:#6f675e}
+    .moment b{display:block;font:400 15px "Gowun Batang",serif;color:var(--ink);margin-bottom:4px}
+    .gallery{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:30px}
+    .gallery img{width:100%;display:block;aspect-ratio: .88;object-fit:cover;background:#e9e0d5}
+    .gallery img:nth-child(2),.gallery img:nth-child(3){aspect-ratio:1.08}
+    .gallery-note{font-size:10px;color:#9a9085;margin-top:14px;line-height:1.8}
+    .details{background:var(--white)}
+    .detail-card{max-width:490px;margin:30px auto 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:25px 8px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .detail-card>div+div{border-left:1px solid var(--line)}
+    .detail-label{font-size:10px;letter-spacing:.2em;color:var(--accent);margin-bottom:10px}
+    .detail-value{font:400 14px/1.9 "Gowun Batang",serif}
+    .venue{font:400 19px "Gowun Batang",serif;margin:26px 0 8px}
+    .subcopy{font-size:11px;line-height:1.9;color:var(--muted)}
+    .map-placeholder{margin:24px auto 0;max-width:500px;min-height:145px;display:grid;place-content:center;background:linear-gradient(135deg,#e8e2d8,#f1ece4);border:1px solid #e0d8cc;color:#80766a}
+    .map-placeholder span{font:italic 18px "DM Serif Display",serif}
+    .buttons{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:18px}
+    .button{display:inline-block;padding:12px 19px;border:1px solid #bca993;text-decoration:none;font-size:10px;letter-spacing:.08em;background:transparent}
+    .button.dark{background:#50483f;color:#fff;border-color:#50483f}
+    .transport{max-width:480px;margin:30px auto 0;text-align:left}
+    .transport-row{padding:15px 0;border-bottom:1px solid var(--line);font-size:12px;line-height:1.9;color:#71685e}
+    .transport-row b{display:block;color:var(--ink);font-weight:500;margin-bottom:3px}
+    .faq{background:var(--cream)}
+    .faq-item{max-width:500px;margin:0 auto;text-align:left;border-bottom:1px solid #d9cfc2;padding:17px 2px}
+    .faq-item b{font:400 14px "Gowun Batang",serif;display:block;margin-bottom:8px}
+    .faq-item p{font-size:11px;line-height:1.9;color:#746b61;margin:0}
+    .gift-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;text-align:left}
+    .gift-card{padding:20px 14px;background:#f1ebe2;border:1px solid #e3d9cb}
+    .gift-card.bride{background:#f4eae5;border-color:#e8d8cf}
+    .gift-card h3{text-align:center;font:400 16px "Gowun Batang",serif;margin:0 0 15px}
+    .gift-card p{text-align:center;font-size:11px;line-height:2;color:#766c61;margin:0}
+    footer{text-align:center;padding:76px 24px 58px;background:#eae2d7}
+    .footer-title{font:italic 39px "DM Serif Display",serif;color:#786451}
+    footer p{font-size:11px;line-height:2;color:#766d63}
+    .footer-names{font:400 16px "Gowun Batang",serif;margin-top:22px}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+    .reveal.visible{opacity:1;transform:none}
+    @media(max-width:560px){
+      .hero{min-height:690px;padding-bottom:50px;background-position:55% center}
+      section{padding:66px 8%}
+      .date-band{padding:48px 6%}
+      .detail-card{padding:20px 0}
+      .gift-grid{grid-template-columns:1fr}
+      .countdown{gap:15px}
     }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
   </style>
 </head>
 <body>
-  <main class="page">
+  <main class="site">
+    <div class="topline"></div>
     <header class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">THE WEDDING OF</p>
-        <h1>Taeyeol</h1>
-        <div class="and">and</div>
-        <h1>Hyunah</h1>
-        <div class="hero-date">2027. 02. 20 SAT 1:30 PM<br>WI컨벤션센터 I홀</div>
-        <div class="script">Our Wedding Day ♡</div>
+        <p class="eyebrow">TOGETHER WITH OUR FAMILIES</p>
+        <h1>Taeyeol</h1><div class="amp">&</div><h1>Hyunah</h1>
+        <div class="hero-date">SATURDAY · FEBRUARY 20 · 2027</div>
+        <div class="hero-venue">1:30 IN THE AFTERNOON · WI CONVENTION I HALL</div>
+        <div class="scroll-cue">SCROLL TO EXPLORE</div>
       </div>
     </header>
 
-    <section class="intro">
-      <div class="section-kicker">INVITATION</div>
-      <h2>저희 두 사람,<br>결혼합니다.</h2>
-      <p>서로가 걸어온 길을 이제는 함께 걷고자 합니다.</p>
-      <p>저희의 새로운 시작을 축복해 주세요.</p>
-      <div class="heart">♡</div>
+    <section class="reveal">
+      <div class="kicker">The Invitation</div><div class="rule"></div>
+      <h2>서로의 계절이 되어<br>평생을 함께 걷겠습니다.</h2>
+      <p class="copy">각자의 길을 걸어온 두 사람이<br>이제 같은 곳을 바라보며 한 걸음을 내딛습니다.<br>저희의 새로운 시작에 함께해 주시면<br>더없는 기쁨으로 간직하겠습니다.</p>
+      <div class="names">태열 <span>그리고</span> 현아</div>
     </section>
 
-    <div class="info-card">
-      <div>
-        <div class="info-label">▦　예식 일시</div>
-        <div class="info-value">2027년 2월 20일 (토)<br>오후 1시 30분</div>
-      </div>
-      <div>
-        <div class="info-label">⌖　예식 장소</div>
-        <div class="info-value">WI컨벤션센터 I홀</div>
-        <div class="small">수원월드컵경기장 내</div>
+    <div class="date-band reveal">
+      <div class="date-title">Save the Date</div>
+      <div class="date-main">2027년 2월 20일 토요일<br>오후 1시 30분</div>
+      <div class="date-sub">WI CONVENTION CENTER · I HALL</div>
+      <div class="countdown" id="countdown">
+        <div><strong id="days">---</strong><span>DAYS</span></div>
+        <div><strong id="hours">--</strong><span>HOURS</span></div>
+        <div><strong id="minutes">--</strong><span>MINUTES</span></div>
+        <div><strong id="seconds">--</strong><span>SECONDS</span></div>
       </div>
     </div>
 
-    <section>
-      <div class="section-kicker">GALLERY</div>
-      <h2>우리의 소중한 순간들 ♡</h2>
+    <section class="story reveal">
+      <div class="kicker">Our Story</div><div class="rule"></div>
+      <h2>우리의 이야기</h2>
+      <p class="copy">함께한 시간만큼 깊어진 마음으로<br>이제 새로운 이야기를 시작합니다.</p>
+      <div class="timeline">
+        <div class="moment"><time>01</time><p><b>처음 만난 날</b>서로를 처음 알게 된 소중한 순간</p></div>
+        <div class="moment"><time>02</time><p><b>함께한 계절</b>웃고 여행하며 추억을 쌓아온 시간</p></div>
+        <div class="moment"><time>03</time><p><b>평생의 약속</b>서로의 가장 가까운 편이 되기로 한 날</p></div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="kicker">Our Moments</div><div class="rule"></div>
+      <h2>함께한 순간들</h2>
       <div class="gallery">
-        <img src="assets/gallery-1.jpg" alt="커플 사진 예시">
-        <img src="assets/gallery-2.jpg" alt="반려견 피트 사진 예시">
-        <img src="assets/gallery-3.jpg" alt="커플 사진 예시">
-        <img src="assets/gallery-4.jpg" alt="손을 잡은 커플 사진 예시">
+        <img src="assets/gallery-1.jpg" alt="두 사람의 추억 사진">
+        <img src="assets/gallery-2.jpg" alt="소중한 가족 피트">
+        <img src="assets/gallery-3.jpg" alt="두 사람의 추억 사진">
+        <img src="assets/gallery-4.jpg" alt="두 사람의 추억 사진">
       </div>
-      <p class="note">사진은 현재 디자인 예시 이미지입니다. 실제 사진으로 교체할 예정입니다.</p>
+      <p class="gallery-note">사진은 디자인 테스트용 이미지입니다. 실제 커플 사진과 피트 사진으로 교체할 예정입니다.</p>
     </section>
 
-    <section>
-      <div class="section-kicker">LOCATION</div>
-      <h2>오시는 길</h2>
-      <p class="note">WI컨벤션센터 I홀 · 수원월드컵경기장</p>
-      <div class="map-panel">
-        <div class="venue-name">WI컨벤션센터 I홀</div>
-        <p class="note">아래 지도 앱에서 예식 장소를 확인하실 수 있습니다.</p>
-        <div class="map-actions">
-          <a href="https://map.naver.com/p/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버 지도 보기 ↗</a>
-          <a href="https://map.kakao.com/link/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">카카오맵 보기 ↗</a>
-        </div>
+    <section class="details reveal">
+      <div class="kicker">Wedding Details</div><div class="rule"></div>
+      <h2>소중한 약속의 날</h2>
+      <div class="detail-card">
+        <div><div class="detail-label">DATE</div><div class="detail-value">2027년 2월 20일 (토)<br>오후 1시 30분</div></div>
+        <div><div class="detail-label">VENUE</div><div class="detail-value">WI컨벤션센터<br>I홀</div></div>
+      </div>
+      <div class="venue">WI컨벤션센터 I홀</div>
+      <p class="subcopy">수원월드컵경기장 내</p>
+      <div class="map-placeholder"><span>Our Wedding Location</span><small>지도 영역 · 카카오맵 연동 예정</small></div>
+      <div class="buttons">
+        <a class="button dark" href="https://map.kakao.com/link/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">카카오맵 길찾기 ↗</a>
+        <a class="button" href="https://map.naver.com/p/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버 지도 ↗</a>
+      </div>
+      <div class="transport">
+        <div class="transport-row"><b>대중교통</b>수원월드컵경기장 방면 대중교통 이용 후 방문해 주세요. 정확한 버스 노선과 정류장 안내는 추후 추가할게요.</div>
+        <div class="transport-row"><b>자가용 및 주차</b>수원월드컵경기장 주차장 이용 안내를 추후 확인해 추가할 예정입니다.</div>
       </div>
     </section>
 
-    <section>
-      <div class="section-kicker">GIFT</div>
+    <section class="faq reveal">
+      <div class="kicker">Good to Know</div><div class="rule"></div>
+      <h2>오시는 분들을 위한 안내</h2>
+      <div class="faq-item"><b>Q. 예식장에 언제 도착하면 좋을까요?</b><p>여유로운 예식 참석을 위해 시작 20~30분 전 도착을 권장합니다.</p></div>
+      <div class="faq-item"><b>Q. 주차는 가능한가요?</b><p>주차 위치와 무료 주차 시간은 확인 후 정확한 내용으로 안내하겠습니다.</p></div>
+      <div class="faq-item"><b>Q. 마음을 전하고 싶어요.</b><p>아래 마음 전하실 곳을 이용하실 수 있도록 계좌 정보를 추후 추가하겠습니다.</p></div>
+    </section>
+
+    <section class="reveal">
+      <div class="kicker">With Love</div><div class="rule"></div>
       <h2>마음 전하실 곳</h2>
-      <p class="note">축하의 마음을 전해주시면, 큰 기쁨으로 간직하겠습니다.</p>
-      <div class="account-grid">
-        <div class="account">
-          <h3>신랑 측</h3>
-          <p>아버지 · 은행명 / 계좌번호<br>어머니 · 은행명 / 계좌번호</p>
-          <p class="small">실제 계좌정보 입력 예정</p>
-        </div>
-        <div class="account bride">
-          <h3>신부 측</h3>
-          <p>아버지 · 은행명 / 계좌번호<br>어머니 · 은행명 / 계좌번호</p>
-          <p class="small">실제 계좌정보 입력 예정</p>
-        </div>
+      <p class="copy">축하의 마음을 보내주시는 모든 분께<br>감사한 마음 오래도록 간직하겠습니다.</p>
+      <div class="gift-grid">
+        <div class="gift-card"><h3>신랑 측</h3><p>아버지 · 계좌정보 추후 입력<br>어머니 · 계좌정보 추후 입력</p></div>
+        <div class="gift-card bride"><h3>신부 측</h3><p>아버지 · 계좌정보 추후 입력<br>어머니 · 계좌정보 추후 입력</p></div>
       </div>
     </section>
 
     <footer>
-      <div class="thanks">Thank You ♡</div>
-      <p>언제나, 고맙습니다 ♡</p>
-      <p class="small">태열 ♥ 현아 · 2027.02.20</p>
+      <div class="footer-title">Thank You</div>
+      <p>저희의 시작을 축복해 주셔서 감사합니다.<br>보내주신 마음 잊지 않고 예쁘게 잘 살겠습니다.</p>
+      <div class="footer-names">태열 ♥ 현아</div>
+      <p>2027. 02. 20 · WI컨벤션센터 I홀</p>
     </footer>
   </main>
+  <script>
+    const weddingDate = new Date("2027-02-20T13:30:00+09:00").getTime();
+    function updateCountdown(){
+      const diff = weddingDate - Date.now();
+      if(diff <= 0){document.getElementById("countdown").innerHTML="<p>오늘, 저희 결혼합니다 ♡</p>";return;}
+      const values={days:Math.floor(diff/86400000),hours:Math.floor(diff%86400000/3600000),minutes:Math.floor(diff%3600000/60000),seconds:Math.floor(diff%60000/1000)};
+      Object.entries(values).forEach(([key,value])=>{document.getElementById(key).textContent=String(value).padStart(2,"0");});
+    }
+    updateCountdown();setInterval(updateCountdown,1000);
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target);}}),{threshold:.12});
+    document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+  </script>
 </body>
 </html>
