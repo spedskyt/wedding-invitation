@@ -112,7 +112,7 @@ footer{text-align:center;background:#1d0505;color:white;padding:64px 20px 46px}.
 <footer><div class="footer-title">See You There!</div><p>저희의 새로운 시작을 함께 축복해 주세요.<br>보내주신 마음 잊지 않고 예쁘게 잘 살겠습니다.</p><div class="footer-names">태열 ♥ 현아</div><p>2027. 02. 20 · WI컨벤션센터 I홀</p></footer>
 </main>
 <div class="ambience" id="ambience" aria-hidden="true"></div>
-<audio id="wedding-music" preload="none" loop src="assets/romantic-piano.mp3"></audio>
+<audio id="wedding-music" preload="none" loop src="assets/midnight-crosstown.mp3"></audio>
 <button class="music-control" id="music-toggle" type="button" aria-label="배경음악 재생" aria-pressed="false"><span class="music-icon">♫</span><span id="music-label">MUSIC OFF</span></button>
 <div class="music-toast" id="music-toast" role="status" aria-live="polite"></div>
 <script>
@@ -149,7 +149,7 @@ musicButton.addEventListener("click",async()=>{
    await music.play();musicButton.setAttribute("aria-pressed","true");
    musicButton.setAttribute("aria-label","배경음악 일시정지");musicLabel.textContent="MUSIC ON";
   }catch(e){
-   showMusicToast("피아노 음원 파일을 assets/romantic-piano.mp3 이름으로 올리면 재생할 수 있어요.");
+   showMusicToast("음원 파일을 불러오지 못했어요. 잠시 후 다시 시도해 주세요.");
   }
  }else{
   music.pause();musicButton.setAttribute("aria-pressed","false");
