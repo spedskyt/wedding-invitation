@@ -55,8 +55,8 @@ a{color:inherit}.site{width:100%;overflow:hidden}
 .detail-card{display:grid;grid-template-columns:1fr 1fr;max-width:520px;margin:30px auto;border-top:1px solid #c9b6a5;border-bottom:1px solid #c9b6a5;padding:22px 0}
 .detail-card>div+div{border-left:1px solid #c9b6a5}.label{font-size:10px;color:var(--orange);letter-spacing:.2em;margin-bottom:9px}.value{font:400 14px/1.9 "Gowun Batang",serif}
 .venue{font:700 20px "Gowun Batang",serif;margin:24px 0 7px}.subcopy{font-size:11px;color:var(--muted);line-height:1.9}
-.mapbox{max-width:560px;min-height:155px;margin:25px auto 0;background:linear-gradient(135deg,#e9dfd2,#f6eee2);display:grid;place-content:center;color:#66594e;border:1px solid #dfd0bf}
-.mapbox strong{font:italic 22px "DM Serif Display",serif}.mapbox span{font-size:10px;margin-top:7px}
+.mapbox{max-width:560px;height:320px;margin:25px auto 0;background:#eee8df;border:1px solid #dfd0bf;overflow:hidden;position:relative}
+#kakao-map{width:100%;height:100%}.map-status{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:20px;color:#66594e;font-size:12px;line-height:1.8;pointer-events:none}.map-status strong{font:italic 22px "DM Serif Display",serif;display:block;margin-bottom:8px}
 .button-row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:17px}.button-row a{padding:12px 16px;text-decoration:none;font-size:10px;border:1px solid var(--wine)}.button-row a:first-child{background:var(--wine);color:white}
 .info-list{max-width:500px;margin:25px auto 0;text-align:left}.info{padding:15px 0;border-bottom:1px solid #e3d5c8;font-size:12px;line-height:1.9;color:var(--muted)}.info b{display:block;color:var(--ink);margin-bottom:4px}
 .faq-item{max-width:520px;margin:auto;text-align:left;padding:17px 0;border-bottom:1px solid #704b42}.faq-item b{font:700 14px "Gowun Batang",serif;display:block;margin-bottom:7px}.faq-item p{font-size:11px;line-height:1.9;color:#e9d8cf;margin:0}
@@ -89,7 +89,7 @@ footer{text-align:center;background:#1d0505;color:white;padding:64px 20px 46px}.
 <section class="section yellow reveal" id="celebration"><div class="kicker">Save The Date</div><h2>우리 결혼합니다!</h2><p class="copy">2027년 2월 20일 토요일 · 오후 1시 30분<br>WI컨벤션센터 I홀</p><div class="date-grid" id="countdown"><div><strong id="days">---</strong><small>DAYS</small></div><div><strong id="hours">--</strong><small>HOURS</small></div><div><strong id="minutes">--</strong><small>MINUTES</small></div><div><strong id="seconds">--</strong><small>SECONDS</small></div></div></section>
 <section class="section reveal" id="story"><div class="kicker">Our Story</div><h2>우리의 이야기</h2><p class="copy">함께한 시간만큼 깊어진 마음으로<br>이제 새로운 이야기를 시작합니다.</p><div class="timeline"><div class="moment"><time>01</time><div><b>처음 만난 날</b><p>서로를 처음 알게 된 소중한 순간</p></div></div><div class="moment"><time>02</time><div><b>함께한 계절</b><p>웃고 여행하며 추억을 쌓아온 시간</p></div></div><div class="moment"><time>03</time><div><b>평생의 약속</b><p>서로의 가장 가까운 편이 되기로 한 날</p></div></div></div></section>
 <section class="section dark reveal"><div class="kicker">Our Moments</div><h2>함께한 순간들</h2><div class="gallery"><img src="assets/gallery-1.jpg" alt="두 사람의 추억 사진"><img src="assets/gallery-2.jpg" alt="피트 사진"><img src="assets/gallery-3.jpg" alt="두 사람의 추억 사진"><img src="assets/gallery-4.jpg" alt="두 사람의 추억 사진"></div><p class="gallery-note">사진은 테스트용 이미지이며 추후 실제 사진으로 교체합니다.</p></section>
-<section class="section reveal" id="guest"><div class="kicker">The Celebration</div><h2>소중한 약속의 날</h2><div class="detail-card"><div><div class="label">DATE</div><div class="value">2027년 2월 20일 (토)<br>오후 1시 30분</div></div><div><div class="label">VENUE</div><div class="value">WI컨벤션센터<br>I홀</div></div></div><div class="venue">WI컨벤션센터 I홀</div><p class="subcopy">수원월드컵경기장 내</p><div class="mapbox"><strong>WI CONVENTION CENTER</strong><span>수원월드컵경기장 내 · I홀</span><span style="margin-top:12px;font-weight:700">아래 버튼을 누르면 네이버 지도에서 위치를 확인할 수 있어요.</span></div><div class="button-row"><a href="https://map.naver.com/p/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버 지도에서 위치 보기 ↗</a></div><div class="info-list"><div class="info"><b>대중교통</b>수원월드컵경기장 방면 대중교통 이용 후 방문해 주세요. 정확한 버스 노선과 정류장 안내는 추후 추가할게요.</div><div class="info"><b>자가용 및 주차</b>주차 위치와 무료 주차 시간은 확인 후 안내하겠습니다.</div></div></section>
+<section class="section reveal" id="guest"><div class="kicker">The Celebration</div><h2>소중한 약속의 날</h2><div class="detail-card"><div><div class="label">DATE</div><div class="value">2027년 2월 20일 (토)<br>오후 1시 30분</div></div><div><div class="label">VENUE</div><div class="value">WI컨벤션센터<br>I홀</div></div></div><div class="venue">WI컨벤션센터 I홀</div><p class="subcopy">수원월드컵경기장 내</p><div class="mapbox"><div id="kakao-map" aria-label="WI컨벤션센터 위치 지도"></div><div class="map-status" id="map-status"><div><strong>WI CONVENTION CENTER</strong>지도를 불러오는 중입니다…</div></div></div><div class="button-row"><a href="https://map.naver.com/p/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버 지도에서 위치 보기 ↗</a></div><div class="info-list"><div class="info"><b>대중교통</b>수원월드컵경기장 방면 대중교통 이용 후 방문해 주세요. 정확한 버스 노선과 정류장 안내는 추후 추가할게요.</div><div class="info"><b>자가용 및 주차</b>주차 위치와 무료 주차 시간은 확인 후 안내하겠습니다.</div></div></section>
 <section class="section dark reveal" id="faq"><div class="kicker">Guest Information</div><h2>오시는 분들을 위한 안내</h2><div class="faq-item"><b>Q. 예식장에 언제 도착하면 좋을까요?</b><p>여유로운 예식 참석을 위해 시작 20~30분 전 도착을 권장합니다.</p></div><div class="faq-item"><b>Q. 주차는 가능한가요?</b><p>주차 위치와 무료 주차 시간은 확인 후 정확한 내용으로 안내하겠습니다.</p></div><div class="faq-item"><b>Q. 마음을 전하고 싶어요.</b><p>아래 마음 전하실 곳에서 축하의 마음을 전하실 수 있습니다.</p></div></section>
 <section class="section reveal" id="gift"><div class="kicker">With Love</div><h2>마음 전하실 곳</h2><p class="copy">축하의 마음을 보내주시는 모든 분께<br>감사한 마음 오래도록 간직하겠습니다.</p><div class="gift-grid"><div class="gift-card"><h3>신랑 측</h3><p>아버지 · 계좌정보 추후 입력<br>어머니 · 계좌정보 추후 입력</p></div><div class="gift-card bride"><h3>신부 측</h3><p>아버지 · 계좌정보 추후 입력<br>어머니 · 계좌정보 추후 입력</p></div></div></section>
 <footer><div class="footer-title">See You There!</div><p>저희의 새로운 시작을 함께 축복해 주세요.<br>보내주신 마음 잊지 않고 예쁘게 잘 살겠습니다.</p><div class="footer-names">태열 ♥ 현아</div><p>2027. 02. 20 · WI컨벤션센터 I홀</p></footer>
@@ -97,7 +97,28 @@ footer{text-align:center;background:#1d0505;color:white;padding:64px 20px 46px}.
 <script>
 const weddingDate=new Date("2027-02-20T13:30:00+09:00").getTime();
 function updateCountdown(){const diff=weddingDate-Date.now();if(diff<=0){document.getElementById("countdown").innerHTML="<p>오늘, 저희 결혼합니다 ♡</p>";return;}const v={days:Math.floor(diff/86400000),hours:Math.floor(diff%86400000/3600000),minutes:Math.floor(diff%3600000/60000),seconds:Math.floor(diff%60000/1000)};Object.entries(v).forEach(([k,n])=>{document.getElementById(k).textContent=String(n).padStart(2,"0")})}
-updateCountdown();setInterval(updateCountdown,1000);
+updateCountdown();setInterval(updateCountdown,1000);<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=193f9d11c7c34d474c16ac424e0ab792&libraries=services&autoload=false"></script>
+<script>
+function initWeddingMap(){
+ const mapEl=document.getElementById("kakao-map");
+ const status=document.getElementById("map-status");
+ if(!window.kakao||!kakao.maps){status.textContent="지도를 불러오지 못했습니다. 카카오맵 사용 설정과 JavaScript SDK 도메인을 확인해 주세요.";return;}
+ kakao.maps.load(function(){
+  const fallback=new kakao.maps.LatLng(37.2868,127.0367);
+  const map=new kakao.maps.Map(mapEl,{center:fallback,level:3});
+  const geocoder=new kakao.maps.services.Geocoder();
+  geocoder.addressSearch("경기도 수원시 팔달구 월드컵로 310",function(result,statusCode){
+   let position=fallback;
+   if(statusCode===kakao.maps.services.Status.OK&&result.length){position=new kakao.maps.LatLng(result[0].y,result[0].x);map.setCenter(position);}
+   const marker=new kakao.maps.Marker({map:map,position:position});
+   const info=new kakao.maps.InfoWindow({content:'<div style="padding:8px 12px;font-size:12px;white-space:nowrap"><b>WI컨벤션센터 I홀</b></div>'});
+   info.open(map,marker);
+   if(status)status.style.display="none";
+  });
+ });
+}
+if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",initWeddingMap);}else{initWeddingMap();}
+</script>
 const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 </script>
