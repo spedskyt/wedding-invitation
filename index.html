@@ -73,6 +73,23 @@ footer{text-align:center;background:#1d0505;color:white;padding:64px 20px 46px}.
 }
 @media(max-width:370px){.hero{min-height:700px}.hero-names{font-size:68px}.hero-date-top{max-width:145px;line-height:1.6}.navlinks{gap:10px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+
+/* Romantic ambience: soft gold sparkles and drifting petals */
+.ambience{position:fixed;inset:0;z-index:18;pointer-events:none;overflow:hidden}
+.sparkle{position:absolute;width:4px;height:4px;border-radius:50%;background:#ffe9a3;box-shadow:0 0 7px 2px #ffd52e99;opacity:0;animation:twinkle var(--duration,4s) ease-in-out var(--delay,0s) infinite}
+.sparkle:after{content:"";position:absolute;left:1px;top:-3px;width:2px;height:10px;background:#fff1bc;transform:rotate(45deg);opacity:.75}
+.petal{position:absolute;top:-35px;width:12px;height:18px;border-radius:80% 10% 80% 10%;background:linear-gradient(135deg,#fff1df,#e9a4a1);opacity:.62;filter:drop-shadow(0 1px 2px #4b171733);animation:petal-fall var(--fall,14s) linear var(--delay,0s) infinite}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.45) rotate(0)}45%{opacity:.8;transform:scale(1.15) rotate(45deg)}65%{opacity:.3;transform:scale(.7) rotate(70deg)}}
+@keyframes petal-fall{0%{transform:translate3d(0,-5vh,0) rotate(0deg);opacity:0}10%{opacity:.58}50%{transform:translate3d(var(--drift,45px),50vh,0) rotate(220deg)}90%{opacity:.48}100%{transform:translate3d(calc(var(--drift,45px)*-.5),110vh,0) rotate(480deg);opacity:0}}
+.music-control{position:fixed;right:16px;bottom:18px;z-index:30;display:flex;align-items:center;gap:8px;border:1px solid #f4d77c;background:rgba(40,7,7,.92);color:#ffe8a0;border-radius:30px;padding:10px 14px;font:500 11px "Noto Sans KR",sans-serif;letter-spacing:.03em;box-shadow:0 4px 18px #18040433;cursor:pointer;backdrop-filter:blur(8px)}
+.music-control .music-icon{font-size:15px;line-height:1}
+.music-control[aria-pressed="true"] .music-icon{animation:music-pulse 1.2s ease-in-out infinite}
+@keyframes music-pulse{50%{transform:scale(1.2)}}
+.music-toast{position:fixed;right:16px;bottom:66px;z-index:31;max-width:260px;padding:10px 13px;border-radius:10px;background:#fffaf0;color:#3a0b0b;font-size:11px;line-height:1.6;box-shadow:0 4px 18px #18040422;opacity:0;transform:translateY(6px);pointer-events:none;transition:.25s}
+.music-toast.show{opacity:1;transform:none}
+@media(max-width:680px){.music-control{right:12px;bottom:12px;padding:9px 12px}.petal{width:10px;height:15px}}
+@media(prefers-reduced-motion:reduce){.sparkle,.petal,.music-control .music-icon{animation:none!important}.sparkle{opacity:.25}.petal{display:none}}
+
 </style>
 </head>
 <body>
@@ -94,7 +111,53 @@ footer{text-align:center;background:#1d0505;color:white;padding:64px 20px 46px}.
 <section class="section reveal"><div class="kicker">Meet The Couple</div><h2>서로에게 가장 소중한 사람</h2><div class="gift-grid"><div class="gift-card"><h3>신랑 · 태열</h3><p>다정하고 따뜻한 남편이 되겠습니다.</p></div><div class="gift-card bride"><h3>신부 · 현아</h3><p>예쁘고 사랑스러운 아내로 함께하겠습니다.</p></div></div></section><section class="section reveal" id="gift"><div class="kicker">With Love</div><h2>마음 전하실 곳</h2><p class="copy">축하의 마음을 보내주시는 모든 분께<br>감사한 마음 오래도록 간직하겠습니다.</p><div class="gift-grid"><div class="gift-card"><h3>신랑 측</h3><p>신랑 윤태열 · 신한은행<br><strong>110-293-479330</strong><br><br>아버지 윤봉근 · 하나은행<br><strong>16191048821207</strong><br><br>어머니 신미용 · 씨티은행<br><strong>2120452826601</strong></p></div><div class="gift-card bride"><h3>신부 측</h3><p>신부 이현아 · 계좌정보 확인 중<br>아버지 이석우 · 계좌정보 확인 중<br>어머니 이금단 · 계좌정보 확인 중</p></div></div></section>
 <footer><div class="footer-title">See You There!</div><p>저희의 새로운 시작을 함께 축복해 주세요.<br>보내주신 마음 잊지 않고 예쁘게 잘 살겠습니다.</p><div class="footer-names">태열 ♥ 현아</div><p>2027. 02. 20 · WI컨벤션센터 I홀</p></footer>
 </main>
+<div class="ambience" id="ambience" aria-hidden="true"></div>
+<audio id="wedding-music" preload="none" loop src="assets/romantic-piano.mp3"></audio>
+<button class="music-control" id="music-toggle" type="button" aria-label="배경음악 재생" aria-pressed="false"><span class="music-icon">♫</span><span id="music-label">MUSIC OFF</span></button>
+<div class="music-toast" id="music-toast" role="status" aria-live="polite"></div>
 <script>
+
+/* Gentle decorative particles */
+(function(){
+ const layer=document.getElementById("ambience");
+ if(!layer||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+ for(let i=0;i<19;i++){
+  const s=document.createElement("i");s.className="sparkle";
+  s.style.left=(4+Math.random()*92)+"%";s.style.top=(8+Math.random()*84)+"%";
+  s.style.setProperty("--delay",(Math.random()*5)+"s");s.style.setProperty("--duration",(3.2+Math.random()*3.8)+"s");
+  layer.appendChild(s);
+ }
+ for(let i=0;i<9;i++){
+  const p=document.createElement("i");p.className="petal";
+  p.style.left=(Math.random()*100)+"%";p.style.setProperty("--delay",(-Math.random()*16)+"s");
+  p.style.setProperty("--fall",(13+Math.random()*10)+"s");p.style.setProperty("--drift",(-65+Math.random()*130)+"px");
+  layer.appendChild(p);
+ }
+})();
+const music=document.getElementById("wedding-music");
+const musicButton=document.getElementById("music-toggle");
+const musicLabel=document.getElementById("music-label");
+const musicToast=document.getElementById("music-toast");
+let toastTimer;
+function showMusicToast(message){
+ musicToast.textContent=message;musicToast.classList.add("show");
+ clearTimeout(toastTimer);toastTimer=setTimeout(()=>musicToast.classList.remove("show"),3500);
+}
+musicButton.addEventListener("click",async()=>{
+ if(music.paused){
+  try{
+   await music.play();musicButton.setAttribute("aria-pressed","true");
+   musicButton.setAttribute("aria-label","배경음악 일시정지");musicLabel.textContent="MUSIC ON";
+  }catch(e){
+   showMusicToast("피아노 음원 파일을 assets/romantic-piano.mp3 이름으로 올리면 재생할 수 있어요.");
+  }
+ }else{
+  music.pause();musicButton.setAttribute("aria-pressed","false");
+  musicButton.setAttribute("aria-label","배경음악 재생");musicLabel.textContent="MUSIC OFF";
+ }
+});
+music.addEventListener("error",()=>{musicButton.setAttribute("aria-pressed","false");musicLabel.textContent="MUSIC OFF";});
+
 const weddingDate=new Date("2027-02-20T13:30:00+09:00").getTime();
 function updateCountdown(){const diff=weddingDate-Date.now();if(diff<=0){document.getElementById("countdown").innerHTML="<p>오늘, 저희 결혼합니다 ♡</p>";return;}const v={days:Math.floor(diff/86400000),hours:Math.floor(diff%86400000/3600000),minutes:Math.floor(diff%3600000/60000),seconds:Math.floor(diff%60000/1000)};Object.entries(v).forEach(([k,n])=>{document.getElementById(k).textContent=String(n).padStart(2,"0")})}
 updateCountdown();setInterval(updateCountdown,1000);function initWeddingMap(){
