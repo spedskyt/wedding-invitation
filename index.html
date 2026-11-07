@@ -97,9 +97,7 @@ footer{text-align:center;background:#1d0505;color:white;padding:64px 20px 46px}.
 <script>
 const weddingDate=new Date("2027-02-20T13:30:00+09:00").getTime();
 function updateCountdown(){const diff=weddingDate-Date.now();if(diff<=0){document.getElementById("countdown").innerHTML="<p>오늘, 저희 결혼합니다 ♡</p>";return;}const v={days:Math.floor(diff/86400000),hours:Math.floor(diff%86400000/3600000),minutes:Math.floor(diff%3600000/60000),seconds:Math.floor(diff%60000/1000)};Object.entries(v).forEach(([k,n])=>{document.getElementById(k).textContent=String(n).padStart(2,"0")})}
-updateCountdown();setInterval(updateCountdown,1000);<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=193f9d11c7c34d474c16ac424e0ab792&libraries=services&autoload=false"></script>
-<script>
-function initWeddingMap(){
+updateCountdown();setInterval(updateCountdown,1000);function initWeddingMap(){
  const mapEl=document.getElementById("kakao-map");
  const status=document.getElementById("map-status");
  if(!window.kakao||!kakao.maps){status.textContent="지도를 불러오지 못했습니다. 카카오맵 사용 설정과 JavaScript SDK 도메인을 확인해 주세요.";return;}
@@ -117,8 +115,11 @@ function initWeddingMap(){
   });
  });
 }
-if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",initWeddingMap);}else{initWeddingMap();}
-</script>
+const kakaoSdk=document.createElement("script");
+kakaoSdk.src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=193f9d11c7c34d474c16ac424e0ab792&libraries=services&autoload=false";
+kakaoSdk.onload=initWeddingMap;
+kakaoSdk.onerror=function(){const status=document.getElementById("map-status");if(status)status.textContent="카카오 지도를 불러오지 못했습니다. 앱의 카카오맵 사용 설정을 확인해 주세요.";};
+document.head.appendChild(kakaoSdk);
 const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 </script>
