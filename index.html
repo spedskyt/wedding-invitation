@@ -361,3 +361,42 @@ const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 </script>
 </body></html>
+
+/* Final mobile layout correction: prevent title clipping and keep the photo viewport stable */
+.opening-content{width:min(100%,390px);padding:28px 18px;box-sizing:border-box}
+.opening-script{
+  width:100%;
+  max-width:100%;
+  white-space:normal;
+  overflow-wrap:normal;
+  font-size:clamp(34px,9.2vw,54px);
+  line-height:1.22;
+  letter-spacing:-.025em;
+  clip-path:inset(0 100% 0 0);
+}
+@media(max-width:360px){
+  .opening-script{font-size:clamp(31px,8.8vw,36px)}
+  .opening-eyebrow{font-size:9px;letter-spacing:.18em}
+  .opening-date{font-size:9px;letter-spacing:.08em}
+}
+@media(max-width:680px){
+  /* Use the small viewport height so browser-bar movement does not resize the hero */
+  .hero{
+    height:calc(100svh - 44px);
+    min-height:0;
+    max-height:none;
+    background-size:cover;
+    background-attachment:scroll;
+    background-position:55% center;
+  }
+  .hero-content{max-width:100%;width:100%}
+  .hero-message{width:100%;padding-inline:4px}
+  .hero-message h2,.hero-message p{overflow-wrap:anywhere}
+  .profile-row img,.gallery img{
+    transform:none!important;
+    animation:none!important;
+    transition:none!important;
+  }
+}
+html,body{overscroll-behavior-x:none}
+.site,.hero,.profile-row img,.gallery-slot{transform:none!important}
