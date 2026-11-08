@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#260707">
+<meta name="theme-color" content="#ffffff">
 <meta name="description" content="태열과 현아의 결혼식에 초대합니다. 2027년 2월 20일 오후 1시 30분, WI컨벤션센터 I홀">
 <title>Taeyeol & Hyunah — Wedding Invitation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,11 +90,119 @@ footer{text-align:center;background:#1d0505;color:white;padding:64px 20px 46px}.
 @media(max-width:680px){.music-control{right:12px;bottom:12px;padding:9px 12px}.petal{width:10px;height:15px}}
 @media(prefers-reduced-motion:reduce){.sparkle,.petal,.music-control .music-icon{animation:none!important}.sparkle{opacity:.25}.petal{display:none}}
 
+
+/* Clean white invitation redesign inspired by the supplied reference screenshots */
+:root{--wine:#315f9d;--wine2:#315f9d;--yellow:#7895bf;--orange:#7895bf;--paper:#fff;--ink:#444;--muted:#777}
+html{scroll-padding-top:58px}
+body{background:#f7f7f7;color:#444;font-family:"Noto Sans KR",sans-serif}
+.site{max-width:430px;min-height:100vh;margin:0 auto;background:#fff;box-shadow:0 0 9px #00000012;overflow:hidden}
+.nav{height:44px;background:#fff;color:#555;padding:0 14px;box-shadow:0 2px 8px #00000012;justify-content:space-between}
+.menu-mark,.sound-mark{width:28px;text-align:center;text-decoration:none;color:#888;font-size:20px;font-weight:300}
+.brand{position:absolute;left:50%;transform:translateX(-50%);font:500 14px "Noto Sans KR",sans-serif;color:#555;letter-spacing:0}
+.brand span{color:#d78e9a}
+.hero{min-height:610px;height:calc(82svh - 44px);max-height:760px;padding:28px 25px 38px;background-image:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.38)),url("assets/SY_00763_hero.jpg");background-position:center 43%;background-size:cover}
+.hero:after{display:none}
+.hero-top{left:22px;right:22px;top:18px;font-size:8px}
+.tag{background:rgba(255,255,255,.9);color:#526f9a;font-weight:500}
+.hero-content{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
+.hero-names{font:400 clamp(46px,12vw,64px)/.98 "Gowun Batang",serif;color:white;letter-spacing:-.04em;text-shadow:0 2px 12px #0007}
+.hero-names span{display:inline;margin:0 0 0 7px}
+.hero-message{padding:0;max-width:300px}
+.hero-overline{color:#fff;font-size:9px}
+.hero-message h2{font:400 20px/1.5 "Gowun Batang",serif;letter-spacing:0;margin-bottom:9px}
+.hero-message p{font-size:11px;line-height:2;color:#fff}
+.btn{border:1px solid #fff;color:#fff;font-size:10px;padding:11px 15px}
+.btn.primary{background:#6f8fba;border-color:#6f8fba}
+.section{padding:66px 22px;text-align:center;background:#fff}
+.section.dark{background:#fff;color:#444}
+.section.yellow{background:#fff}
+.kicker{font:500 12px "Noto Sans KR",sans-serif;letter-spacing:.16em;color:#7895bf;margin-bottom:13px}
+.section.dark .kicker{color:#7895bf}
+.section h2{font:400 23px/1.65 "Gowun Batang",serif;letter-spacing:-.04em;margin:0 0 18px;color:#444}
+.copy,.section.dark .copy{font-size:13px;line-height:2.05;color:#666}
+.names-kor{font:500 15px "Gowun Batang",serif;color:#555}
+.date-grid{gap:17px;margin-top:25px}
+.date-grid strong{font:400 25px "Gowun Batang",serif;color:#6f8fba}
+.date-grid small{font-size:8px;color:#888}
+.timeline{max-width:360px;margin:30px auto 0}
+.moment{grid-template-columns:38px 1fr;gap:13px;border-bottom:1px solid #eee;padding-bottom:19px;margin-bottom:18px}
+.moment time{font:400 19px "Gowun Batang",serif;color:#7895bf}
+.moment b{font:500 14px "Gowun Batang",serif}
+.moment p{font-size:12px;color:#777}
+.gallery{gap:7px}
+.gallery img{border-radius:5px;background:#f4f4f4}
+.gallery-note{color:#999}
+.detail-card{border-color:#e5e5e5}
+.detail-card>div+div{border-color:#e5e5e5}
+.label{color:#7895bf}
+.value{font-size:13px}
+.venue{font-size:18px}
+.subcopy{color:#888}
+.mapbox{height:280px;background:#f5f5f5;border:0;border-radius:5px}
+.button-row a{border:1px solid #7895bf;border-radius:4px;color:#5678a5}
+.button-row a:first-child{background:#7895bf;color:white}
+.info{border-color:#eee;color:#777}
+.info b{color:#555;font-weight:500}
+.faq-item{border-color:#e8e8e8}
+.faq-item b{font:500 14px "Gowun Batang",serif;color:#444}
+.faq-item p{color:#777}
+.gift-grid{grid-template-columns:1fr;gap:9px}
+.gift-card,.gift-card.bride{background:#fafafa;border:1px solid #eee;border-radius:5px}
+.gift-card h3{font:500 15px "Gowun Batang",serif}
+.gift-card p{color:#666;line-height:2.1}
+footer{background:#f8f9fb;color:#555;padding:52px 20px 42px;border-top:1px solid #eee}
+.footer-title{font:400 30px "Gowun Batang",serif;color:#6f8fba}
+footer p{color:#777}
+.footer-names{font:500 15px "Gowun Batang",serif}
+.ambience{z-index:18}
+.sparkle{background:#dbe7f7;box-shadow:0 0 7px 2px #7895bf55}
+.sparkle:after{background:#fff}
+.petal{opacity:.35;background:linear-gradient(135deg,#fff,#e9cbd0)}
+.music-control{right:max(12px,calc((100vw - 430px)/2 + 12px));bottom:14px;border:1px solid #e4e9f0;background:rgba(255,255,255,.94);color:#6684ad;box-shadow:0 2px 12px #00000012}
+.music-toast{right:max(12px,calc((100vw - 430px)/2 + 12px));background:#fff;color:#555}
+.profile-section{padding-top:70px;padding-bottom:65px}
+.profile-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center;text-align:left;margin-top:34px}
+.profile-row.reverse{margin-top:38px}
+.profile-row img{width:100%;aspect-ratio:1/1.08;object-fit:cover;border-radius:5px;box-shadow:0 2px 6px #00000018}
+.profile-copy{min-width:0}
+.profile-label{font-size:11px;color:#7895bf;margin-bottom:5px}
+.bride-label{color:#cf9299}
+.profile-copy h3{font:500 15px "Gowun Batang",serif;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid #777;white-space:nowrap}
+.profile-copy h3 a{font:12px sans-serif;color:#7895bf;text-decoration:none}
+.profile-copy p{font-size:11px;line-height:1.8;color:#666;margin:0 0 12px}
+.profile-copy .profile-desc{font-size:12px;color:#555;line-height:1.9}
+.calendar-section{padding-top:70px;padding-bottom:72px}
+.calendar-intro{font-size:13px;line-height:2;color:#555;margin:0}
+.calendar-month{font:500 18px "Gowun Batang",serif;color:#5879a8;margin:26px 0 22px}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);align-items:center;gap:12px 0;max-width:350px;margin:0 auto}
+.calendar-grid span{font-size:12px;font-weight:600;color:#555;padding-bottom:7px}
+.calendar-grid .sun{color:#5879a8}
+.calendar-grid i{font-style:normal;font-size:12px;color:#555;display:grid;place-items:center;width:31px;height:31px;justify-self:center}
+.calendar-grid .wedding-day{background:#7895bf;color:white;border-radius:50%;font-weight:700;box-shadow:0 2px 5px #7895bf44}
+.calendar-caption{margin:48px 0 0;font-size:13px;line-height:2;color:#666}
+.calendar-caption strong{color:#7895bf;font-weight:500}
+@media(max-width:680px){
+ .nav{height:44px}
+ .hero{min-height:620px;height:calc(84svh - 44px);padding:28px 20px 34px;background-position:55% center}
+ .hero-content{display:flex;flex-direction:column;align-items:center;gap:16px}
+ .hero-names{font-size:clamp(45px,12vw,60px)}
+ .hero-message{max-width:300px}
+ .hero-message h2{font-size:19px}
+ .section{padding:60px 20px}
+ .section h2{font-size:22px}
+ .profile-row{gap:12px}
+ .profile-copy h3{font-size:14px}
+ .profile-copy p{font-size:10px}
+ .profile-copy .profile-desc{font-size:11px}
+ .calendar-grid{gap:10px 0}
+}
+@media(prefers-reduced-motion:reduce){.sparkle,.petal{animation:none!important}}
+
 </style>
 </head>
 <body>
 <main class="site">
-<nav class="nav"><a class="brand" href="#">Wedivora</a><div class="navlinks"><a href="#story">OUR STORY</a><a href="#celebration">THE CELEBRATION</a><a href="#guest">GUEST INFO</a><a href="#faq">FAQ</a><a class="rsvp" href="#gift">♥ RSVP</a></div></nav>
+<nav class="nav"><a class="menu-mark" href="#story" aria-label="이야기 보기">☰</a><a class="brand" href="#">태열 <span>♥</span> 현아</a><a class="sound-mark" href="#music-toggle" aria-label="배경음악">♫</a></nav>
 <header class="hero">
  <div class="hero-top"><span class="tag">TOGETHER WITH OUR FAMILIES</span><span class="hero-date-top">[ SATURDAY · FEB 20, 2027 · SUWON, KOREA ]</span></div>
  <div class="hero-content">
@@ -104,11 +212,12 @@ footer{text-align:center;background:#1d0505;color:white;padding:64px 20px 46px}.
 </header>
 <section class="section reveal"><div class="kicker">Breaking News</div><h2>[속보] 태열과 현아,<br>마침내 결혼 발표!</h2><p class="copy">자유의 몸을 정중히 반납하고,<br>공식 유부남·유부녀의 길로 들어섭니다.<br><br>소문으로만 듣던 그 현장에 여러분을 초대합니다.<br>오셔서 본방사수 해주세요!</p><div class="names-kor">신랑 윤태열 ♥ 신부 이현아</div><p class="copy" style="margin-top:22px;font-size:11px">신랑 아버지 윤봉근 · 어머니 신미용<br>신부 아버지 이석우 · 어머니 이금단</p></section>
 <section class="section yellow reveal" id="celebration"><div class="kicker">Save The Date</div><h2>우리 결혼합니다!</h2><p class="copy">2027년 2월 20일 토요일 · 오후 1시 30분<br>WI컨벤션센터 I홀</p><div class="date-grid" id="countdown"><div><strong id="days">---</strong><small>DAYS</small></div><div><strong id="hours">--</strong><small>HOURS</small></div><div><strong id="minutes">--</strong><small>MINUTES</small></div><div><strong id="seconds">--</strong><small>SECONDS</small></div></div></section>
+<section class="section calendar-section reveal"><div class="kicker">WEDDING DAY</div><h2>예식 안내</h2><p class="calendar-intro">2027년 2월 20일 토요일 오후 1시 30분<br>WI컨벤션센터 I홀</p><div class="calendar-month">2027년 2월</div><div class="calendar-grid"><span class="sun">일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span><i></i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i><i>10</i><i>11</i><i>12</i><i>13</i><i>14</i><i>15</i><i>16</i><i>17</i><i>18</i><i>19</i><i class="wedding-day">20</i><i>21</i><i>22</i><i>23</i><i>24</i><i>25</i><i>26</i><i>27</i><i>28</i></div><p class="calendar-caption">태열 ♥ 현아의 결혼식이<br><strong>2027년 2월 20일</strong>에 열립니다.</p></section>
 <section class="section reveal" id="story"><div class="kicker">Our Story</div><h2>친구의 한마디에서<br>평생의 약속까지</h2><p class="copy">모든 이야기는 태열의 친구가 건넨 작은 인연에서 시작됐습니다.</p><div class="timeline"><div class="moment"><time>01</time><div><b>친구의 소개로 시작된 인연</b><p>친구의 결혼식 날, 단체사진을 보던 중 서로를 가리키며 잘 어울릴 것 같다던 친구의 한마디. 그렇게 두 사람의 인연이 시작됐습니다.</p></div></div><div class="moment"><time>02</time><div><b>첫눈에 반한 순간, 그리고 설렘</b><p>처음 만난 순간부터 서로에게 마음을 빼앗겼고, 설레는 썸을 지나 자연스럽게 연인이 되었습니다.</p></div></div><div class="moment"><time>03</time><div><b>서로의 평생 편이 되기로</b><p>함께 웃고 같은 마음을 확인하며, 이제는 서로의 평생 반려자로 함께하기로 약속했습니다.</p></div></div></div><div class="names-kor">태열 ♥ 현아</div></section>
 <section class="section dark reveal"><div class="kicker">Our Moments</div><h2>함께한 순간들</h2><div class="gallery"><img src="assets/gallery-1.jpg" alt="두 사람의 추억 사진"><img src="assets/gallery-2.jpg" alt="피트 사진"><img src="assets/gallery-3.jpg" alt="두 사람의 추억 사진"><img src="assets/gallery-4.jpg" alt="두 사람의 추억 사진"></div><p class="gallery-note">사진은 테스트용 이미지이며 추후 실제 사진으로 교체합니다.</p></section>
 <section class="section reveal" id="guest"><div class="kicker">The Celebration</div><h2>소중한 약속의 날</h2><div class="detail-card"><div><div class="label">DATE</div><div class="value">2027년 2월 20일 (토)<br>오후 1시 30분</div></div><div><div class="label">VENUE</div><div class="value">WI컨벤션센터<br>I홀</div></div></div><div class="venue">WI컨벤션센터 I홀</div><p class="subcopy">수원월드컵경기장 내</p><div class="mapbox"><div id="kakao-map" aria-label="WI컨벤션센터 위치 지도"></div><div class="map-status" id="map-status"><div><strong>WI CONVENTION CENTER</strong>지도를 불러오는 중입니다…</div></div></div><div class="button-row"><a href="https://map.naver.com/p/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버 지도에서 위치 보기 ↗</a></div><div class="info-list"><div class="info"><b>부산 출발 대절버스</b>서면역 9번 출구 앞 오전 7시 30분 출발<br>오전 7시 20분부터 대기할 예정입니다.</div><div class="info"><b>웨딩홀 셔틀버스</b>수인분당선 수원시청역에서 출발<br>9번 출구 앞 · 정시 기준 약 20분 간격 운행</div><div class="info"><b>버스 이용</b>‘수원월드컵경기장’ 또는 ‘동성중학교’ 정류장 하차<br>서울역버스환승센터 6번 승강장: 8800번<br>2호선 사당역 4번 출구: 7001번<br>2호선 사당역 3번 출구: 7000번</div><div class="info"><b>자가용 및 주차</b>수원월드컵경기장 P3·P4·P7·P8 주차장을 이용해 주세요.<br>P6 주차장은 혼주 전용입니다.</div></div></section>
 <section class="section dark reveal" id="faq"><div class="kicker">Guest Information</div><h2>오시는 분들을 위한 안내</h2><div class="faq-item"><b>Q. 부산에서 함께 출발할 수 있나요?</b><p>부산 출발 대절버스가 서면역 9번 출구 앞에서 오전 7시 30분에 출발합니다. 7시 20분부터 대기해 주세요.</p></div><div class="faq-item"><b>Q. 주차는 어디에 하면 되나요?</b><p>수원월드컵경기장 P3·P4·P7·P8 주차장을 이용해 주세요. P6은 혼주 전용입니다.</p></div><div class="faq-item"><b>Q. 마음을 전하고 싶어요.</b><p>신랑 측 계좌는 아래에 안내되어 있으며, 신부 측 계좌는 확인되는 대로 업데이트하겠습니다.</p></div></section>
-<section class="section reveal"><div class="kicker">Meet The Couple</div><h2>서로에게 가장 소중한 사람</h2><div class="gift-grid"><div class="gift-card"><h3>신랑 · 태열</h3><p>다정하고 따뜻한 남편이 되겠습니다.</p></div><div class="gift-card bride"><h3>신부 · 현아</h3><p>예쁘고 사랑스러운 아내로 함께하겠습니다.</p></div></div></section><section class="section reveal" id="gift"><div class="kicker">With Love</div><h2>마음 전하실 곳</h2><p class="copy">축하의 마음을 보내주시는 모든 분께<br>감사한 마음 오래도록 간직하겠습니다.</p><div class="gift-grid"><div class="gift-card"><h3>신랑 측</h3><p>신랑 윤태열 · 신한은행<br><strong>110-293-479330</strong><br><br>아버지 윤봉근 · 하나은행<br><strong>16191048821207</strong><br><br>어머니 신미용 · 씨티은행<br><strong>2120452826601</strong></p></div><div class="gift-card bride"><h3>신부 측</h3><p>신부 이현아 · 계좌정보 확인 중<br>아버지 이석우 · 계좌정보 확인 중<br>어머니 이금단 · 계좌정보 확인 중</p></div></div></section>
+<section class="section profile-section reveal" id="couple"><div class="kicker">THE COUPLE</div><h2>서로의 가장 좋은 친구로<br>평생을 함께하겠습니다.</h2><div class="profile-row"><div class="profile-copy"><div class="profile-label">신랑</div><h3>윤태열 <a href="tel:">☎</a></h3><p>윤봉근 · 신미용의 장남</p><p class="profile-desc">다정하고 따뜻한 마음으로<br>늘 곁을 지키는 남편이 되겠습니다.</p></div><img src="assets/SY_00380.JPG" alt="두 사람의 추억 사진"></div><div class="profile-row reverse"><img src="assets/SY_00763_hero.jpg" alt="두 사람의 웨딩 사진"><div class="profile-copy"><div class="profile-label bride-label">신부</div><h3>이현아 <a href="tel:">☎</a></h3><p>이석우 · 이금단의 장녀</p><p class="profile-desc">예쁘고 사랑스러운 마음으로<br>햇살 같은 아내가 되겠습니다.</p></div></div></section><section class="section reveal" id="gift"><div class="kicker">With Love</div><h2>마음 전하실 곳</h2><p class="copy">축하의 마음을 보내주시는 모든 분께<br>감사한 마음 오래도록 간직하겠습니다.</p><div class="gift-grid"><div class="gift-card"><h3>신랑 측</h3><p>신랑 윤태열 · 신한은행<br><strong>110-293-479330</strong><br><br>아버지 윤봉근 · 하나은행<br><strong>16191048821207</strong><br><br>어머니 신미용 · 씨티은행<br><strong>2120452826601</strong></p></div><div class="gift-card bride"><h3>신부 측</h3><p>신부 이현아 · 계좌정보 확인 중<br>아버지 이석우 · 계좌정보 확인 중<br>어머니 이금단 · 계좌정보 확인 중</p></div></div></section>
 <footer><div class="footer-title">See You There!</div><p>저희의 새로운 시작을 함께 축복해 주세요.<br>보내주신 마음 잊지 않고 예쁘게 잘 살겠습니다.</p><div class="footer-names">태열 ♥ 현아</div><p>2027. 02. 20 · WI컨벤션센터 I홀</p></footer>
 </main>
 <div class="ambience" id="ambience" aria-hidden="true"></div>
