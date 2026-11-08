@@ -278,6 +278,28 @@ body{overscroll-behavior-y:contain}
   .opening-date{font-size:9px;letter-spacing:.07em}
 }
 
+/* Mobile WebView scroll compatibility */
+html{
+  overflow-x:clip;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  touch-action:pan-y;
+}
+body{
+  overflow-x:clip;
+  overflow-y:visible;
+  overscroll-behavior-y:auto;
+  touch-action:pan-y;
+  min-height:100%;
+}
+.site{
+  overflow:visible;
+  touch-action:pan-y;
+}
+main.site{
+  overflow:visible;
+}
+
 </style>
 </head>
 <body>
