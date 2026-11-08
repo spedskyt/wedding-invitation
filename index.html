@@ -324,11 +324,29 @@ body{overscroll-behavior-y:contain}
  const cover=document.getElementById("opening-screen");
  if(!cover)return;
  document.body.classList.add("opening-locked");
- window.setTimeout(()=>{
+ let closed=false;
+ let touchStartY=null;
+ function closeOpening(scrollAfterSwipe){
+  if(closed)return;
+  closed=true;
   cover.classList.add("is-opening");
   document.body.classList.remove("opening-locked");
-  window.setTimeout(()=>cover.remove(),1000);
- },5200);
+  window.setTimeout(()=>{
+   cover.remove();
+   if(scrollAfterSwipe>0)window.scrollBy({top:Math.max(180,scrollAfterSwipe),behavior:"smooth"});
+  },950);
+ }
+ // Android browsers: allow an upward swipe on the opening screen to continue into the invitation.
+ cover.addEventListener("touchstart",event=>{
+  if(event.touches&&event.touches.length)touchStartY=event.touches[0].clientY;
+ },{passive:true});
+ cover.addEventListener("touchend",event=>{
+  if(touchStartY===null||!event.changedTouches||!event.changedTouches.length)return;
+  const delta=touchStartY-event.changedTouches[0].clientY;
+  touchStartY=null;
+  if(delta>35)closeOpening(delta);
+ },{passive:true});
+ window.setTimeout(()=>closeOpening(0),5200);
 })();
 
 /* Gentle decorative particles */
