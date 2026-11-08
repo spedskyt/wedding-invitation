@@ -8,7 +8,7 @@
 <title>Taeyeol & Hyunah — Wedding Invitation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Parisienne&display=swap" rel="stylesheet">
 <style>
 :root{--wine:#280707;--wine2:#3a0b0b;--yellow:#ffd52e;--orange:#f04418;--paper:#fffaf0;--ink:#271d19;--muted:#796d62}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}
@@ -218,17 +218,34 @@ footer p{color:#777}
 
 body.opening-locked{overflow:hidden}
 .contact-placeholder{max-width:340px;margin:25px auto 0;border-top:1px solid #e7e7e7}.contact-placeholder>div{display:flex;justify-content:space-between;gap:12px;padding:15px 4px;border-bottom:1px solid #e7e7e7;text-align:left;font-size:12px}.contact-placeholder b{font-weight:500;color:#555}.contact-placeholder span{color:#999;font-size:11px}
+
+/* Automatic handwritten opening and stable mobile viewport */
+.opening-photo{transform:none!important;animation:none!important;background-position:center center}
+.opening-content{animation:opening-rise 1.1s .15s both}
+.opening-script{font-family:"Parisienne",cursive;font-size:clamp(48px,12vw,66px);line-height:1.15;white-space:nowrap;color:#fff;text-shadow:0 2px 14px #17253c88;clip-path:inset(0 100% 0 0);animation:script-write 2.6s .65s ease forwards}
+.opening-divider{font:24px "Gowun Batang",serif;color:#f0cbd0;margin:16px 0 14px;opacity:0;animation:opening-rise .8s 2.5s forwards}
+.opening-names{font:400 14px "Noto Sans KR",sans-serif;letter-spacing:.22em;color:#fff;text-shadow:0 2px 10px #18263b88;opacity:0;animation:opening-rise .8s 2.8s forwards}
+.opening-names span{font-family:"Gowun Batang",serif;color:#f0cbd0;padding:0 5px}
+.opening-date{font-size:10px;letter-spacing:.15em;margin-top:13px;color:#f4f0ec;opacity:0;animation:opening-rise .8s 3.1s forwards}
+@keyframes script-write{0%{clip-path:inset(0 100% 0 0);opacity:.2}100%{clip-path:inset(0 0 0 0);opacity:1}}
+@media(max-width:380px){.opening-script{font-size:43px}}
+@media(prefers-reduced-motion:reduce){.opening-script,.opening-divider,.opening-names,.opening-date{animation:none;clip-path:none;opacity:1}}
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+body{overscroll-behavior-y:contain}
+.site{width:100%;max-width:430px;margin-left:auto;margin-right:auto}
+.opening-screen{width:100%;height:100%;height:100dvh;min-height:100svh;overscroll-behavior:contain}
+
 </style>
 </head>
 <body>
-<div class="opening-screen" id="opening-screen" role="dialog" aria-label="청첩장 열기">
+<div class="opening-screen" id="opening-screen" role="status" aria-label="We're getting married">
  <div class="opening-photo"></div>
  <div class="opening-content">
   <div class="opening-eyebrow">A SPECIAL INVITATION</div>
-  <div class="opening-names">태열 <span>♥</span> 현아</div>
-  <div class="opening-title">저희 결혼합니다</div>
-  <div class="opening-date">2027. 02. 20 SAT · PM 1:30</div>
-  <button class="opening-button" id="opening-button" type="button">초대장 열기 <span>✦</span></button>
+  <div class="opening-script">We're getting married!</div>
+  <div class="opening-divider">♡</div>
+  <div class="opening-names">TAEYEOL <span>&amp;</span> HYUNAH</div>
+  <div class="opening-date">FEBRUARY 20, 2027 · 1:30 PM</div>
  </div>
  <div class="opening-bottom">WITH LOVE, TAEYEOL &amp; HYUNAH</div>
 </div>
@@ -262,17 +279,16 @@ body.opening-locked{overflow:hidden}
 <div class="music-toast" id="music-toast" role="status" aria-live="polite"></div>
 <script>
 
-// Opening cover: the guest deliberately opens the invitation; audio remains user-controlled.
+// Automatic opening title; music remains user-controlled because browsers block audio autoplay.
 (function(){
  const cover=document.getElementById("opening-screen");
- const openButton=document.getElementById("opening-button");
- if(!cover||!openButton)return;
- openButton.addEventListener("click",()=>{
+ if(!cover)return;
+ document.body.classList.add("opening-locked");
+ window.setTimeout(()=>{
   cover.classList.add("is-opening");
   document.body.classList.remove("opening-locked");
   window.setTimeout(()=>cover.remove(),1000);
- });
- document.body.classList.add("opening-locked");
+ },5200);
 })();
 
 /* Gentle decorative particles */
