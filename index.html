@@ -216,7 +216,7 @@ footer p{color:#777}
 @keyframes opening-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.opening-photo,.opening-content{animation:none}}
 
-body.opening-locked{overflow:hidden}
+body.opening-locked{overflow:hidden} .opening-screen{touch-action:pan-y}
 .contact-placeholder{max-width:340px;margin:25px auto 0;border-top:1px solid #e7e7e7}.contact-placeholder>div{display:flex;justify-content:space-between;gap:12px;padding:15px 4px;border-bottom:1px solid #e7e7e7;text-align:left;font-size:12px}.contact-placeholder b{font-weight:500;color:#555}.contact-placeholder span{color:#999;font-size:11px}
 
 /* Automatic handwritten opening and stable mobile viewport */
@@ -323,31 +323,41 @@ body{overscroll-behavior-y:contain}
 (function(){
  const cover=document.getElementById("opening-screen");
  if(!cover)return;
- document.body.classList.add("opening-locked");
  let closed=false;
  let touchStartY=null;
- function closeOpening(scrollAfterSwipe){
+ function closeOpening(scrollDistance){
   if(closed)return;
   closed=true;
-  cover.classList.add("is-opening");
   document.body.classList.remove("opening-locked");
+  cover.classList.add("is-opening");
   window.setTimeout(()=>{
-   cover.remove();
-   if(scrollAfterSwipe>0)window.scrollBy({top:Math.max(180,scrollAfterSwipe),behavior:"smooth"});
-  },950);
+   if(cover.parentNode)cover.remove();
+   if(scrollDistance>0){
+    const current=window.pageYOffset||document.documentElement.scrollTop||0;
+    window.scrollTo(0,current+Math.max(220,scrollDistance));
+   }
+  },350);
  }
- // Android browsers: allow an upward swipe on the opening screen to continue into the invitation.
+ // KakaoTalk Android in-app browser: detect the gesture during touchmove as well
+ // as touchend, since WebViews may report touchcancel when the page gesture begins.
  cover.addEventListener("touchstart",event=>{
   if(event.touches&&event.touches.length)touchStartY=event.touches[0].clientY;
  },{passive:true});
+ cover.addEventListener("touchmove",event=>{
+  if(touchStartY===null||!event.touches||!event.touches.length)return;
+  const distance=touchStartY-event.touches[0].clientY;
+  if(distance>30)closeOpening(distance);
+ },{passive:true});
  cover.addEventListener("touchend",event=>{
   if(touchStartY===null||!event.changedTouches||!event.changedTouches.length)return;
-  const delta=touchStartY-event.changedTouches[0].clientY;
+  const distance=touchStartY-event.changedTouches[0].clientY;
   touchStartY=null;
-  if(delta>35)closeOpening(delta);
+  if(distance>30)closeOpening(distance);
  },{passive:true});
+ // Also allow a tap on the opening cover to enter the invitation immediately.
+ cover.addEventListener("click",()=>closeOpening(0));
  window.setTimeout(()=>closeOpening(0),5200);
-})();
+})();;
 
 /* Gentle decorative particles */
 (function(){
