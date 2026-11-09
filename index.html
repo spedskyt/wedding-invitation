@@ -360,6 +360,11 @@ main.site{
 /* Discourage saving/copying wedding photos in mobile browsers */
 .gallery img,.gallery-viewer img,.profile-row img,.history-photo img,.opening-photo,.hero{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;-webkit-user-drag:none}
 .gallery img,.gallery-viewer img{touch-action:manipulation}
+
+/* Consistent map button appearance */
+.button-row.map-links a,.button-row.map-links a:first-child,.button-row.map-links a:nth-child(2),.button-row.map-links a:nth-child(3){background:#fff;color:#5678a5;border:1px solid #7895bf;border-radius:4px;font-weight:500;box-sizing:border-box;display:flex;align-items:center;justify-content:center;min-height:42px}
+/* Account number remains tappable for copying, without a visible copy label */
+.gift-card .account-copy{font-size:12px;text-decoration:none;color:#5678a5;line-height:1.8;text-align:left}
 </style>
 </head>
 <body>
@@ -405,8 +410,7 @@ main.site{
 <section class="section reveal" id="guest"><div class="kicker">The Celebration</div><h2>소중한 약속의 날</h2><div class="detail-card"><div><div class="label">DATE</div><div class="value">2027년 2월 20일 (토)<br>오후 1시 30분</div></div><div><div class="label">VENUE</div><div class="value">WI컨벤션센터<br>I홀</div></div></div><div class="venue">WI컨벤션센터 I홀</div><p class="subcopy">수원월드컵경기장 내</p><div class="mapbox"><div id="kakao-map" aria-label="WI컨벤션센터 위치 지도"></div><div class="map-status" id="map-status"><div><strong>WI CONVENTION CENTER</strong>지도를 불러오는 중입니다…</div></div></div><div class="button-row map-links"><a href="https://map.naver.com/p/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버 지도</a><a href="https://map.kakao.com/link/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0%20%EC%88%98%EC%9B%90%EC%9B%94%EB%93%9C%EC%BB%B5%EA%B2%BD%EA%B8%B0%EC%9E%A5" target="_blank" rel="noopener">카카오 지도</a><a href="https://www.google.com/maps/search/?api=1&query=경기도+수원시+팔달구+월드컵로+310" target="_blank" rel="noopener">구글 지도</a></div><div class="info-list"><div class="info"><b>부산 출발 대절버스</b>서면역 9번 출구 앞 오전 7시 30분 출발<br>오전 7시 20분부터 대기할 예정입니다.</div><div class="info"><b>웨딩홀 셔틀버스</b>수인분당선 수원시청역에서 출발<br>9번 출구 앞 · 정시 기준 약 20분 간격 운행</div><div class="info"><b>버스 이용</b>‘수원월드컵경기장’ 또는 ‘동성중학교’ 정류장 하차<br>서울역버스환승센터 6번 승강장: 8800번<br>2호선 사당역 4번 출구: 7001번<br>2호선 사당역 3번 출구: 7000번</div><div class="info"><b>자가용 및 주차</b>네비게이션 이용 시: 경기 수원시 팔달구 월드컵로 310<br>수원월드컵경기장 P3·P4·P7·P8 주차장을 이용해 주세요.<br>P6 주차장은 혼주 전용입니다.</div></div></section>
 <section class="section dark reveal" id="faq"><div class="kicker">Guest Information</div><h2>오시는 분들을 위한 안내</h2><div class="faq-item"><b>Q. 부산에서 함께 출발할 수 있나요?</b><p>부산 출발 대절버스가 서면역 9번 출구 앞에서 오전 7시 30분에 출발합니다. 7시 20분부터 대기해 주세요.</p></div><div class="faq-item"><b>Q. 주차는 어디에 하면 되나요?</b><p>수원월드컵경기장 P3·P4·P7·P8 주차장을 이용해 주세요. P6은 혼주 전용입니다.</p></div><div class="faq-item"><b>Q. 마음을 전하고 싶어요.</b><p>신랑 측 계좌는 아래에 안내되어 있으며, 신부 측 계좌는 확인되는 대로 업데이트하겠습니다.</p></div></section>
 <section class="section reveal" id="gift"><div class="kicker">With Love</div><h2>마음 전하실 곳</h2><p class="copy">축하의 마음을 보내주시는 모든 분께<br>감사한 마음 오래도록 간직하겠습니다.</p><div class="gift-grid">
-<div class="gift-card"><h3>신랑 측</h3><p>신랑 윤태열 · <strong class="bank-name">신한은행</strong><br><button class="account-copy" data-account="110-293-479330">110-293-479330 복사</button><br><br>아버지 윤봉근 · <strong class="bank-name">하나은행</strong><br><button class="account-copy" data-account="16191048821207">16191048821207 복사</button><br><br>어머니 신미용 · <strong class="bank-name">씨티은행</strong><br><button class="account-copy" data-account="2120452826601">2120452826601 복사</button></p></div>
-<div class="gift-card bride"><h3>신부 측</h3><p>신부 이현아 · <strong class="bank-name">신한은행</strong><br><button class="account-copy" data-account="110-317-955570">110-317-955570 복사</button></p></div></div></section>
+<div class="gift-card"><h3>신랑 측</h3><p>신랑 윤태열<br><button class="account-copy" data-account="110-293-479330" aria-label="신랑 윤태열 신한 계좌번호 복사">신한 110-293-479330</button><br><br>아버지 윤봉근<br><button class="account-copy" data-account="16191048821207" aria-label="아버지 윤봉근 하나 계좌번호 복사">하나 16191048821207</button><br><br>어머니 신미용<br><button class="account-copy" data-account="2120452826601" aria-label="어머니 신미용 씨티 계좌번호 복사">씨티 2120452826601</button></p></div><div class="gift-card bride"><h3>신부 측</h3><p>신부 이현아<br><button class="account-copy" data-account="110-317-955570" aria-label="신부 이현아 신한 계좌번호 복사">신한 110-317-955570</button></p></div></div></section>
 <footer><div class="footer-title">See You There!</div><p>저희의 새로운 시작을 함께 축복해 주세요.<br>보내주신 마음 잊지 않고 예쁘게 잘 살겠습니다.</p><div class="footer-names">태열 ♥ 현아</div><p>2027. 02. 20 · WI컨벤션센터 I홀</p></footer>
 </main>
 <div class="ambience" id="ambience" aria-hidden="true"></div>
@@ -496,9 +500,9 @@ const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 
 document.querySelectorAll(".account-copy").forEach(button=>button.addEventListener("click",async()=>{
- const number=button.dataset.account;
- try{await navigator.clipboard.writeText(number);button.textContent=number+" 복사 완료";}
- catch(e){const area=document.createElement("textarea");area.value=number;document.body.appendChild(area);area.select();try{document.execCommand("copy");button.textContent=number+" 복사 완료";}catch(err){button.textContent=number;}area.remove();}
+ const number=button.dataset.account;button.dataset.originalLabel ||= button.textContent;
+ try{await navigator.clipboard.writeText(number);button.textContent=button.dataset.originalLabel+" ✓";setTimeout(()=>button.textContent=button.dataset.originalLabel,1600);}
+ catch(e){const area=document.createElement("textarea");area.value=number;document.body.appendChild(area);area.select();try{document.execCommand("copy");button.textContent=button.dataset.originalLabel+" ✓";setTimeout(()=>button.textContent=button.dataset.originalLabel,1600);}catch(err){button.textContent=button.dataset.originalLabel;}area.remove();}
 }));
 
 // Gallery fullscreen viewer: supports touch swipe and keyboard.
