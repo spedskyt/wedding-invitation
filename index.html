@@ -314,12 +314,12 @@ main.site{
 
 
 /* OUR HISTORY alternating photo timeline */
-.history-timeline{position:relative;max-width:390px;margin:38px auto 0;padding:0 4px}
+.history-timeline{position:relative;max-width:350px;margin:38px auto 0;padding:0 4px}
 .history-timeline:before{content:"";position:absolute;left:50%;top:5%;bottom:5%;width:1px;background:#d9dce5;transform:translateX(-50%)}
-.history-item{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;min-height:142px;margin-bottom:24px}
-.history-item:after{content:"";position:absolute;left:50%;top:50%;width:9px;height:9px;border-radius:50%;background:#4269a5;transform:translate(-50%,-50%);z-index:2}
-.history-photo{grid-row:1;min-width:0}
-.history-photo img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:7px;box-shadow:0 2px 7px #0002}
+.history-item{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;min-height:128px;margin-bottom:22px}
+.history-item:after{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;border-radius:50%;background:#4269a5;transform:translate(-50%,-50%);z-index:2}
+.history-photo{grid-row:1;min-width:0;display:flex;align-items:center;justify-content:center}
+.history-photo img{display:block;width:100%;max-width:108px;aspect-ratio:1/1;object-fit:cover;object-position:center;border-radius:7px;box-shadow:0 2px 6px #0002;image-rendering:auto}
 .history-text{grid-row:1;text-align:center;padding:8px 2px;min-width:0}
 .history-text h3{font:500 15px "Gowun Batang",serif;margin:0 0 12px;color:#333}
 .history-text p{font-size:12px;line-height:1.9;margin:0;color:#555}
@@ -328,7 +328,7 @@ main.site{
 .history-item.left .history-text{grid-column:2}
 .history-item.right .history-photo{grid-column:2}
 .history-item.right .history-text{grid-column:1}
-@media(max-width:380px){.history-item{gap:22px;min-height:125px}.history-text h3{font-size:14px}.history-text p{font-size:11px}}
+@media(max-width:380px){.history-item{gap:18px;min-height:118px}.history-photo img{max-width:98px}.history-text h3{font-size:14px}.history-text p{font-size:11px}}
 
 </style>
 </head>
