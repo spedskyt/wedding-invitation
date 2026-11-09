@@ -312,6 +312,24 @@ main.site{
 .account-copy{border:0;background:transparent;padding:3px 0;color:#6684ad;font:500 12px "Noto Sans KR",sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .gift-card p{line-height:2.2}
 
+
+/* OUR HISTORY alternating photo timeline */
+.history-timeline{position:relative;max-width:390px;margin:38px auto 0;padding:0 4px}
+.history-timeline:before{content:"";position:absolute;left:50%;top:5%;bottom:5%;width:1px;background:#d9dce5;transform:translateX(-50%)}
+.history-item{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;min-height:142px;margin-bottom:24px}
+.history-item:after{content:"";position:absolute;left:50%;top:50%;width:9px;height:9px;border-radius:50%;background:#4269a5;transform:translate(-50%,-50%);z-index:2}
+.history-photo{grid-row:1;min-width:0}
+.history-photo img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:7px;box-shadow:0 2px 7px #0002}
+.history-text{grid-row:1;text-align:center;padding:8px 2px;min-width:0}
+.history-text h3{font:500 15px "Gowun Batang",serif;margin:0 0 12px;color:#333}
+.history-text p{font-size:12px;line-height:1.9;margin:0;color:#555}
+.history-text time{display:block;margin-top:10px;font:italic 14px "DM Serif Display",serif;color:#9298a4}
+.history-item.left .history-photo{grid-column:1}
+.history-item.left .history-text{grid-column:2}
+.history-item.right .history-photo{grid-column:2}
+.history-item.right .history-text{grid-column:1}
+@media(max-width:380px){.history-item{gap:22px;min-height:125px}.history-text h3{font-size:14px}.history-text p{font-size:11px}}
+
 </style>
 </head>
 <body>
@@ -346,7 +364,13 @@ main.site{
 
 <section class="section yellow reveal" id="celebration"><div class="kicker">Save The Date</div><h2>우리 결혼합니다!</h2><p class="copy">2027년 2월 20일 토요일 · 오후 1시 30분<br>WI컨벤션센터 I홀</p><div class="date-grid" id="countdown"><div><strong id="days">---</strong><small>DAYS</small></div><div><strong id="hours">--</strong><small>HOURS</small></div><div><strong id="minutes">--</strong><small>MINUTES</small></div><div><strong id="seconds">--</strong><small>SECONDS</small></div></div></section>
 
-<section class="section reveal" id="story"><div class="kicker">OUR HISTORY</div><h2>우리의 히스토리</h2><p class="copy">우리의 이야기를 담을 공간입니다.<br>내용과 사진은 추후 업데이트할 예정입니다.</p></section>
+<section class="section reveal" id="story"><div class="kicker">OUR HISTORY</div><h2>우리의 히스토리 🎞️</h2>
+<div class="history-timeline">
+<div class="history-item left"><div class="history-photo"><img src="assets/history-first-meeting.jpg" alt="첫 만남 사진"></div><div class="history-text"><h3>첫만남</h3><p>친구의 소개로 처음 만나<br>서로에게 첫눈에 반했어요.</p><time>2022</time></div></div>
+<div class="history-item right"><div class="history-photo"><img src="assets/history-first-anniversary.jpg" alt="1주년 사진"></div><div class="history-text"><h3>1주년</h3><p>함께한 첫 번째 일 년,<br>소중한 추억이 쌓였어요.</p><time>2023.02</time></div></div>
+<div class="history-item left"><div class="history-photo"><img src="assets/history-second-anniversary.jpg" alt="2주년 사진"></div><div class="history-text"><h3>2주년</h3><p>두 번째 일 년도 함께하며<br>더 깊은 사랑을 나눴어요.</p><time>2024.01</time></div></div>
+<div class="history-item right"><div class="history-photo"><img src="assets/history-wedding-day.jpg" alt="웨딩데이 사진"></div><div class="history-text"><h3>Wedding Day!</h3><p>저희는 이 날,<br>부부가 됩니다.</p><time>2027.02.20</time></div></div>
+</div></section>
 <section class="section dark reveal"><div class="kicker">GALLERY</div><h2>GALLERY</h2><div class="gallery"><div class="gallery-slot gallery-feature">사진 1</div><div class="gallery-slot">사진 2</div><div class="gallery-slot">사진 3</div><div class="gallery-slot">사진 4</div><div class="gallery-slot">사진 5</div><div class="gallery-slot">사진 6</div><div class="gallery-slot">사진 7</div><div class="gallery-slot">사진 8</div><div class="gallery-slot">사진 9</div><div class="gallery-slot">사진 10</div><div class="gallery-slot">사진 11</div><div class="gallery-slot">사진 12</div><div class="gallery-slot">사진 13</div></div><p class="gallery-note">소중한 순간을 담은 사진 13장을 준비하고 있습니다.</p></section>
 <section class="section reveal" id="guest"><div class="kicker">The Celebration</div><h2>소중한 약속의 날</h2><div class="detail-card"><div><div class="label">DATE</div><div class="value">2027년 2월 20일 (토)<br>오후 1시 30분</div></div><div><div class="label">VENUE</div><div class="value">WI컨벤션센터<br>I홀</div></div></div><div class="venue">WI컨벤션센터 I홀</div><p class="subcopy">수원월드컵경기장 내</p><div class="mapbox"><div id="kakao-map" aria-label="WI컨벤션센터 위치 지도"></div><div class="map-status" id="map-status"><div><strong>WI CONVENTION CENTER</strong>지도를 불러오는 중입니다…</div></div></div><div class="button-row map-links"><a href="https://map.naver.com/p/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버 지도</a><a href="https://map.kakao.com/link/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%센터" target="_blank" rel="noopener">카카오 지도</a><a href="https://www.google.com/maps/search/?api=1&query=경기도+수원시+팔달구+월드컵로+310" target="_blank" rel="noopener">구글 지도</a></div><div class="info-list"><div class="info"><b>부산 출발 대절버스</b>서면역 9번 출구 앞 오전 7시 30분 출발<br>오전 7시 20분부터 대기할 예정입니다.</div><div class="info"><b>웨딩홀 셔틀버스</b>수인분당선 수원시청역에서 출발<br>9번 출구 앞 · 정시 기준 약 20분 간격 운행</div><div class="info"><b>버스 이용</b>‘수원월드컵경기장’ 또는 ‘동성중학교’ 정류장 하차<br>서울역버스환승센터 6번 승강장: 8800번<br>2호선 사당역 4번 출구: 7001번<br>2호선 사당역 3번 출구: 7000번</div><div class="info"><b>자가용 및 주차</b>네비게이션 이용 시: 경기 수원시 팔달구 월드컵로 310<br>수원월드컵경기장 P3·P4·P7·P8 주차장을 이용해 주세요.<br>P6 주차장은 혼주 전용입니다.</div></div></section>
 <section class="section dark reveal" id="faq"><div class="kicker">Guest Information</div><h2>오시는 분들을 위한 안내</h2><div class="faq-item"><b>Q. 부산에서 함께 출발할 수 있나요?</b><p>부산 출발 대절버스가 서면역 9번 출구 앞에서 오전 7시 30분에 출발합니다. 7시 20분부터 대기해 주세요.</p></div><div class="faq-item"><b>Q. 주차는 어디에 하면 되나요?</b><p>수원월드컵경기장 P3·P4·P7·P8 주차장을 이용해 주세요. P6은 혼주 전용입니다.</p></div><div class="faq-item"><b>Q. 마음을 전하고 싶어요.</b><p>신랑 측 계좌는 아래에 안내되어 있으며, 신부 측 계좌는 확인되는 대로 업데이트하겠습니다.</p></div></section>
