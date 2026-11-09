@@ -356,6 +356,10 @@ main.site{
 .gallery-viewer .gallery-prev{left:10px;top:50%;transform:translateY(-50%)}
 .gallery-viewer .gallery-next{right:10px;top:50%;transform:translateY(-50%)}
 .gallery-viewer .gallery-count{position:absolute;bottom:24px;color:white;font-size:13px;letter-spacing:2px}
+
+/* Discourage saving/copying wedding photos in mobile browsers */
+.gallery img,.gallery-viewer img,.profile-row img,.history-photo img,.opening-photo,.hero{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;-webkit-user-drag:none}
+.gallery img,.gallery-viewer img{touch-action:manipulation}
 </style>
 </head>
 <body>
@@ -409,6 +413,7 @@ main.site{
 <audio id="wedding-music" preload="none" loop src="assets/midnight-crosstown.mp3"></audio>
 <button class="music-control" id="music-toggle" type="button" aria-label="배경음악 재생" aria-pressed="false"><span class="music-icon">♫</span><span id="music-label">MUSIC OFF</span></button>
 <div class="music-toast" id="music-toast" role="status" aria-live="polite"></div>
+<div class="gallery-viewer" id="galleryViewer" role="dialog" aria-modal="true" aria-label="웨딩사진 크게 보기"><button type="button" class="gallery-close" aria-label="닫기">×</button><button type="button" class="gallery-prev" aria-label="이전 사진">‹</button><img alt="확대된 웨딩사진"><button type="button" class="gallery-next" aria-label="다음 사진">›</button><div class="gallery-count" aria-live="polite"></div></div>
 <script>
 
 // Automatically fade out the opening cover; the page itself is never scroll-locked.
@@ -499,6 +504,8 @@ document.querySelectorAll(".account-copy").forEach(button=>button.addEventListen
 // Gallery fullscreen viewer: supports touch swipe and keyboard.
 (function(){
  const photos=Array.from(document.querySelectorAll('.gallery img'));
+ // Suppress native long-press image actions while preserving ordinary taps.
+ document.querySelectorAll('.gallery img,.gallery-viewer img,.profile-row img,.history-photo img').forEach(function(img){img.setAttribute('draggable','false');img.addEventListener('dragstart',function(e){e.preventDefault();});img.addEventListener('contextmenu',function(e){e.preventDefault();});});
  const viewer=document.getElementById('galleryViewer');
  if(!viewer||!photos.length)return;
  const large=viewer.querySelector('img'),counter=viewer.querySelector('.gallery-count');
@@ -516,6 +523,5 @@ document.querySelectorAll(".account-copy").forEach(button=>button.addEventListen
  document.addEventListener('keydown',function(e){if(!viewer.classList.contains('is-visible'))return;if(e.key==='Escape')close();else if(e.key==='ArrowLeft')show(index-1);else if(e.key==='ArrowRight')show(index+1);});
 })();
 </script>
-<div class="gallery-viewer" id="galleryViewer" role="dialog" aria-modal="true" aria-label="웨딩사진 크게 보기"><button type="button" class="gallery-close" aria-label="닫기">×</button><button type="button" class="gallery-prev" aria-label="이전 사진">‹</button><img alt="확대된 웨딩사진"><button type="button" class="gallery-next" aria-label="다음 사진">›</button><div class="gallery-count" aria-live="polite"></div></div>
 </body></html>
 
