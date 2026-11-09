@@ -343,6 +343,19 @@ main.site{
 @media(max-width:380px){.history-item{gap:18px;min-height:118px}.history-photo img{max-width:98px}.history-text h3{font-size:14px}.history-text p{font-size:11px}}
 
 .gallery img{height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center 30%;min-width:0}.gallery img:first-child{grid-row:span 2;height:100%;aspect-ratio:auto}.gallery-slot{min-height:160px}
+
+/* Uniform gallery thumbnails without cropping; full-size viewer */
+.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.gallery img,.gallery img:first-child{display:block;grid-row:auto;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;object-position:center;background:#f4f2f0;border-radius:6px;cursor:zoom-in}
+.gallery-slot{aspect-ratio:3/4;min-height:0}
+.gallery-viewer{position:fixed;inset:0;z-index:99999;background:rgba(12,15,20,.96);display:none;align-items:center;justify-content:center;touch-action:pan-y}
+.gallery-viewer.is-visible{display:flex}
+.gallery-viewer img{max-width:calc(100vw - 32px);max-height:calc(100dvh - 100px);width:auto;height:auto;object-fit:contain}
+.gallery-viewer button{position:absolute;z-index:2;border:0;background:rgba(255,255,255,.18);color:#fff;border-radius:50%;width:40px;height:40px;font-size:23px;cursor:pointer}
+.gallery-viewer .gallery-close{top:16px;right:16px}
+.gallery-viewer .gallery-prev{left:10px;top:50%;transform:translateY(-50%)}
+.gallery-viewer .gallery-next{right:10px;top:50%;transform:translateY(-50%)}
+.gallery-viewer .gallery-count{position:absolute;bottom:24px;color:white;font-size:13px;letter-spacing:2px}
 </style>
 </head>
 <body>
@@ -483,5 +496,6 @@ document.querySelectorAll(".account-copy").forEach(button=>button.addEventListen
  catch(e){const area=document.createElement("textarea");area.value=number;document.body.appendChild(area);area.select();try{document.execCommand("copy");button.textContent=number+" 복사 완료";}catch(err){button.textContent=number;}area.remove();}
 }));
 </script>
+<div class="gallery-viewer" id="galleryViewer" role="dialog" aria-modal="true" aria-label="웨딩사진 크게 보기"><button type="button" class="gallery-close" aria-label="닫기">×</button><button type="button" class="gallery-prev" aria-label="이전 사진">‹</button><img alt="확대된 웨딩사진"><button type="button" class="gallery-next" aria-label="다음 사진">›</button><div class="gallery-count" aria-live="polite"></div></div>
 </body></html>
 
