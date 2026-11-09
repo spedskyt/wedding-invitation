@@ -419,7 +419,7 @@ main.site{
 <footer><div class="footer-title">See You There!</div><p>저희의 새로운 시작을 함께 축복해 주세요.<br>보내주신 마음 잊지 않고 예쁘게 잘 살겠습니다.</p><div class="footer-names">태열 ♥ 현아</div><p>2027. 02. 20 · WI컨벤션센터 I홀</p></footer>
 </main>
 <div class="ambience" id="ambience" aria-hidden="true"></div>
-<audio id="wedding-music" preload="none" loop src="assets/midnight-crosstown.mp3"></audio>
+<audio id="wedding-music" preload="auto" autoplay playsinline loop src="assets/midnight-crosstown.mp3"></audio>
 <button class="music-control" id="music-toggle" type="button" aria-label="배경음악 재생" aria-pressed="false"><span class="music-icon">♫</span><span id="music-label">MUSIC OFF</span></button>
 <div class="music-toast" id="music-toast" role="status" aria-live="polite"></div>
 <div class="gallery-viewer" id="galleryViewer" role="dialog" aria-modal="true" aria-label="웨딩사진 크게 보기"><button type="button" class="gallery-close" aria-label="닫기">×</button><button type="button" class="gallery-prev" aria-label="이전 사진">‹</button><img alt="확대된 웨딩사진"><button type="button" class="gallery-next" aria-label="다음 사진">›</button><div class="gallery-count" aria-live="polite"></div></div>
@@ -464,25 +464,41 @@ const musicButton=document.getElementById("music-toggle");
 const musicLabel=document.getElementById("music-label");
 const musicToast=document.getElementById("music-toast");
 let toastTimer;
+let musicManuallyOff=false;
 function showMusicToast(message){
  musicToast.textContent=message;musicToast.classList.add("show");
  clearTimeout(toastTimer);toastTimer=setTimeout(()=>musicToast.classList.remove("show"),3500);
 }
+function syncMusicButton(){
+ const playing=!music.paused;
+ musicButton.setAttribute("aria-pressed",String(playing));
+ musicButton.setAttribute("aria-label",playing?"배경음악 일시정지":"배경음악 재생");
+ musicLabel.textContent=playing?"MUSIC ON":"MUSIC OFF";
+}
+async function tryAutoMusic(){
+ if(musicManuallyOff||!music.paused)return;
+ try{await music.play();syncMusicButton();}
+ catch(e){syncMusicButton();}
+}
 musicButton.addEventListener("click",async()=>{
  if(music.paused){
-  try{
-   await music.play();musicButton.setAttribute("aria-pressed","true");
-   musicButton.setAttribute("aria-label","배경음악 일시정지");musicLabel.textContent="MUSIC ON";
-  }catch(e){
-   showMusicToast("음원 파일을 불러오지 못했어요. 잠시 후 다시 시도해 주세요.");
-  }
+  musicManuallyOff=false;
+  try{await music.play();syncMusicButton();}
+  catch(e){showMusicToast("음악을 재생할 수 없어요. 다시 눌러 주세요.");syncMusicButton();}
  }else{
-  music.pause();musicButton.setAttribute("aria-pressed","false");
-  musicButton.setAttribute("aria-label","배경음악 재생");musicLabel.textContent="MUSIC OFF";
+  musicManuallyOff=true;
+  music.pause();syncMusicButton();
  }
 });
-music.addEventListener("error",()=>{musicButton.setAttribute("aria-pressed","false");musicLabel.textContent="MUSIC OFF";});
-
+music.addEventListener("play",syncMusicButton);
+music.addEventListener("pause",syncMusicButton);
+music.addEventListener("error",syncMusicButton);
+// Autoplay when permitted; mobile browsers often require the first tap.
+tryAutoMusic();
+window.addEventListener("pageshow",tryAutoMusic);
+["pointerdown","touchstart","keydown"].forEach(eventName=>{
+ document.addEventListener(eventName,tryAutoMusic,{capture:true,passive:true});
+});
 const weddingDate=new Date("2027-02-20T13:30:00+09:00").getTime();
 function updateCountdown(){const diff=weddingDate-Date.now();if(diff<=0){document.getElementById("countdown").innerHTML="<p>오늘, 저희 결혼합니다 ♡</p>";return;}const v={days:Math.floor(diff/86400000),hours:Math.floor(diff%86400000/3600000),minutes:Math.floor(diff%3600000/60000),seconds:Math.floor(diff%60000/1000)};Object.entries(v).forEach(([k,n])=>{document.getElementById(k).textContent=String(n).padStart(2,"0")})}
 updateCountdown();setInterval(updateCountdown,1000);function initWeddingMap(){
