@@ -456,6 +456,13 @@ html,body{background:#283527}
 .opening-date{font-size:11px}
 .opening-bottom{font-size:10px}
 .opening-names .opening-heart{font-size:19px!important}
+
+/* Center transport guidance and softly highlight the Busan charter bus. */
+#guest .info-list{text-align:center}
+#guest .info{text-align:center}
+#guest .info-busan{margin:20px 0 12px;padding:22px 14px;border:1px solid #e6c9b6;border-radius:16px;background:linear-gradient(145deg,#fff8f1,#f8ece5);box-shadow:0 6px 20px rgba(115,75,60,.07);color:#6c5348}
+#guest .info-busan b{font-size:15px;font-weight:600;color:#7b4c3e;margin:7px 0 9px}
+#guest .busan-tag{display:inline-block;font-family:"Noto Sans KR",sans-serif;font-size:9px;letter-spacing:.13em;font-weight:600;color:#9d6756;border:1px solid #ddbcaa;border-radius:30px;padding:5px 11px}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 </head>
@@ -490,7 +497,7 @@ html,body{background:#283527}
 
 <section class="section yellow reveal" id="celebration"><div class="kicker">COUNTING DOWN TO LOVE</div><h2>우리의 결혼식까지</h2><div class="date-grid" id="countdown"><div><strong id="days">---</strong><small>DAYS</small></div><div><strong id="hours">--</strong><small>HOURS</small></div><div><strong id="minutes">--</strong><small>MINUTES</small></div><div><strong id="seconds">--</strong><small>SECONDS</small></div></div></section>
 
-<section class="section reveal" id="guest"><div class="kicker">LOCATION &amp; DIRECTIONS</div><h2>오시는 길</h2><div class="venue">WI컨벤션센터 I홀</div><p class="subcopy">수원월드컵경기장 내</p><div class="mapbox"><div id="kakao-map" aria-label="WI컨벤션센터 위치 지도"></div><div class="map-status" id="map-status"><div><strong>WI CONVENTION CENTER</strong>지도를 불러오는 중입니다…</div></div></div><div class="button-row map-links"><a href="https://map.naver.com/p/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버 지도</a><a href="https://map.kakao.com/link/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0%20%EC%88%98%EC%9B%90%EC%9B%94%EB%93%9C%EC%BB%B5%EA%B2%BD%EA%B8%B0%EC%9E%A5" target="_blank" rel="noopener">카카오 지도</a><a href="https://www.google.com/maps/search/?api=1&query=경기도+수원시+팔달구+월드컵로+310" target="_blank" rel="noopener">구글 지도</a></div><div class="info-list"><div class="info"><b>부산 출발 대절버스</b>서면역 9번 출구 앞 오전 7시 30분 출발<br>오전 7시 20분부터 대기할 예정입니다.</div><div class="info"><b>웨딩홀 셔틀버스</b>수인분당선 수원시청역에서 출발<br>9번 출구 앞 · 정시 기준 약 20분 간격 운행</div><div class="info"><b>버스 이용</b>&lt;수원월드컵경기장, 동성중학교 정류장 하차&gt;<br>서울역버스환승센터 6번 승강장: 8800번<br>2호선 사당역 4번 출구: 7001번<br>2호선 사당역 3번 출구: 7000번</div><div class="info"><b>자가용 및 주차</b>네비게이션 이용 시: 경기 수원시 팔달구 월드컵로 310<br>수원월드컵경기장 P3·P4·P7·P8 주차장을 이용해 주세요.<br>P6 주차장은 혼주 전용입니다.</div></div></section>
+<section class="section reveal" id="guest"><div class="kicker">LOCATION &amp; DIRECTIONS</div><h2>오시는 길</h2><div class="venue">WI컨벤션센터 I홀</div><p class="subcopy">수원월드컵경기장 내</p><div class="mapbox"><div id="kakao-map" aria-label="WI컨벤션센터 위치 지도"></div><div class="map-status" id="map-status"><div><strong>WI CONVENTION CENTER</strong>지도를 불러오는 중입니다…</div></div></div><div class="button-row map-links"><a href="https://map.naver.com/p/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버 지도</a><a href="https://map.kakao.com/link/search/WI%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0%20%EC%88%98%EC%9B%90%EC%9B%94%EB%93%9C%EC%BB%B5%EA%B2%BD%EA%B8%B0%EC%9E%A5" target="_blank" rel="noopener">카카오 지도</a><a href="https://www.google.com/maps/search/?api=1&query=경기도+수원시+팔달구+월드컵로+310" target="_blank" rel="noopener">구글 지도</a></div><div class="info-list"><div class="info info-busan"><span class="busan-tag">SPECIAL TRANSPORTATION · BUSAN</span><b>🚌 부산 출발 대절버스</b>서면역 9번 출구 앞 오전 7시 30분 출발<br>오전 7시 20분부터 대기할 예정입니다.</div><div class="info"><b>웨딩홀 셔틀버스</b>수인분당선 수원시청역에서 출발<br>9번 출구 앞 · 정시 기준 약 20분 간격 운행</div><div class="info"><b>버스 이용</b>&lt;수원월드컵경기장, 동성중학교 정류장 하차&gt;<br>서울역버스환승센터 6번 승강장: 8800번<br>2호선 사당역 4번 출구: 7001번<br>2호선 사당역 3번 출구: 7000번</div><div class="info"><b>자가용 및 주차</b>네비게이션 이용 시: 경기 수원시 팔달구 월드컵로 310<br>수원월드컵경기장 P3·P4·P7·P8 주차장을 이용해 주세요.<br>P6 주차장은 혼주 전용입니다.</div></div></section>
 
 <section class="section reveal" id="story"><div class="kicker">OUR HISTORY</div><h2>우리의 히스토리 🎞️</h2>
 <div class="history-timeline">
