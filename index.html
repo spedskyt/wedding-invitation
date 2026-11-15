@@ -195,7 +195,7 @@ footer p{color:#777}
 .calendar-caption strong{color:#7895bf;font-weight:500}
 @media(max-width:680px){
  .nav{height:44px}
- .hero{min-height:620px;height:calc(84svh - 44px);padding:28px 20px 34px;background-position:55% center}
+ .hero{min-height:620px;height:calc(84svh - 44px);padding:28px 20px 34px;background-position:50% center}
  .hero-content{display:flex;flex-direction:column;align-items:center;gap:16px}
  .hero-names{font-size:clamp(45px,12vw,60px)}
  .hero-message{max-width:300px}
@@ -375,6 +375,10 @@ main.site{
 .hero .hero-message{text-align:center}
 .hero .hero-message p{font-size:clamp(12px,3.1vw,14px);line-height:1.9}
 .hero{background-blend-mode:normal;filter:none}
+
+/* Center the couple behind the centered wedding lettering across screen sizes. */
+.hero{background-position:50% 43%}
+@media(max-width:600px){.hero{background-position:50% 43%}}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 </head>
