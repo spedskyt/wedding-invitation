@@ -665,10 +665,21 @@ document.querySelectorAll(".account-copy").forEach(button=>button.addEventListen
  const viewer=document.getElementById('galleryViewer');
  if(!viewer||!photos.length)return;
  const large=viewer.querySelector('img'),counter=viewer.querySelector('.gallery-count');
- let index=0,startX=null,oldOverflow='';
+ let index=0,startX=null,oldOverflow='',galleryHistoryOpen=false;
  function show(i){index=(i+photos.length)%photos.length;large.src=photos[index].getAttribute('src');large.alt=photos[index].alt;counter.textContent=(index+1)+' / '+photos.length;}
- function open(i){show(i);oldOverflow=document.body.style.overflow;viewer.classList.add('is-visible');document.body.style.overflow='hidden';}
- function close(){viewer.classList.remove('is-visible');document.body.style.overflow=oldOverflow;}
+ function hideViewer(){viewer.classList.remove('is-visible');document.body.style.overflow=oldOverflow;galleryHistoryOpen=false;}
+ function open(i){
+  if(viewer.classList.contains('is-visible')){show(i);return;}
+  show(i);oldOverflow=document.body.style.overflow;viewer.classList.add('is-visible');document.body.style.overflow='hidden';
+  history.pushState({...(history.state||{}),weddingGalleryOpen:true},'');
+  galleryHistoryOpen=true;
+ }
+ function close(){
+  if(!viewer.classList.contains('is-visible'))return;
+  if(galleryHistoryOpen&&history.state&&history.state.weddingGalleryOpen){history.back();}
+  else hideViewer();
+ }
+ window.addEventListener('popstate',function(){if(viewer.classList.contains('is-visible'))hideViewer();});
  photos.forEach(function(photo,i){photo.setAttribute('tabindex','0');photo.setAttribute('role','button');photo.addEventListener('click',function(e){e.preventDefault();open(i);});photo.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i);}});});
  viewer.querySelector('.gallery-close').addEventListener('click',close);
  viewer.querySelector('.gallery-prev').addEventListener('click',function(){show(index-1);});
