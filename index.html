@@ -385,6 +385,9 @@ main.site{
 html,body{background:#283527}
 .opening-screen{background:#283527}
 .opening-photo{background-color:#283527}
+
+/* Keep drifting petals only; remove glitter/sparkle overlay. */
+.sparkle{display:none!important}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 </head>
@@ -462,12 +465,6 @@ if(!location.hash){
 (function(){
  const layer=document.getElementById("ambience");
  if(!layer||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
- for(let i=0;i<19;i++){
-  const s=document.createElement("i");s.className="sparkle";
-  s.style.left=(4+Math.random()*92)+"%";s.style.top=(8+Math.random()*84)+"%";
-  s.style.setProperty("--delay",(Math.random()*5)+"s");s.style.setProperty("--duration",(3.2+Math.random()*3.8)+"s");
-  layer.appendChild(s);
- }
  for(let i=0;i<9;i++){
   const p=document.createElement("i");p.className="petal";
   p.style.left=(Math.random()*100)+"%";p.style.setProperty("--delay",(-Math.random()*16)+"s");
