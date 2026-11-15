@@ -475,6 +475,23 @@ html,body{background:#283527}
 
 /* Keep the full wedding arch visible in the last history photo. */
 .history-photo img.wedding-arch-photo{aspect-ratio:3/4;object-fit:contain;object-position:center;background:#f7f5f2}
+
+/* Public guestbook, visually consistent with the invitation. */
+.guestbook-form{max-width:520px;margin:24px auto;text-align:left;display:flex;flex-direction:column;gap:9px}
+.guestbook-form label{font-size:12px;color:#6d605b}
+.guestbook-form input,.guestbook-form textarea{width:100%;box-sizing:border-box;border:1px solid #e2dcd7;background:#fff;border-radius:7px;padding:12px 14px;color:#403832;font:14px/1.6 "Noto Sans KR",sans-serif;resize:vertical}
+.guestbook-form input:focus,.guestbook-form textarea:focus{outline:2px solid #d8b8ab;outline-offset:1px}
+.guestbook-form button,.guestbook-more{border:0;border-radius:7px;background:#755b50;color:#fff;padding:13px 16px;font:500 13px "Noto Sans KR",sans-serif;cursor:pointer}
+.guestbook-form button:disabled{opacity:.6;cursor:wait}
+.guestbook-status{font-size:12px;color:#8b7a71;text-align:center;line-height:1.7;margin:4px 0}
+.guestbook-entries{max-width:520px;margin:25px auto 0;text-align:left}
+.guestbook-entry{padding:17px 4px;border-bottom:1px solid #eae4e0}
+.guestbook-entry-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:7px}
+.guestbook-entry-name{font-size:13px;color:#5c463d;font-weight:600}
+.guestbook-entry-date{font-size:11px;color:#a69b95}
+.guestbook-entry-message{font-size:13px;color:#665b55;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.9;margin:0}
+.guestbook-more{display:block;margin:20px auto;background:transparent;color:#755b50;border:1px solid #d8c9c1}
+.guestbook-more[hidden],.guestbook-hp{display:none!important}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 </head>
@@ -523,6 +540,7 @@ html,body{background:#283527}
 
 <section class="section reveal" id="gift"><div class="kicker">With Love</div><h2>마음 전하실 곳</h2><p class="copy">축하의 마음을 보내주시는 모든 분께<br>감사한 마음 오래도록 간직하겠습니다.</p><div class="gift-grid">
 <div class="gift-card"><h3>신랑 측</h3><p>신랑 윤태열<br><button class="account-copy" data-account="110-293-479330" aria-label="신랑 윤태열 신한 계좌번호 복사">신한 110-293-479330</button><br><br>아버지 윤봉근<br><button class="account-copy" data-account="16191048821207" aria-label="아버지 윤봉근 하나 계좌번호 복사">하나 16191048821207</button><br><br>어머니 신미용<br><button class="account-copy" data-account="2120452826601" aria-label="어머니 신미용 씨티 계좌번호 복사">씨티 2120452826601</button></p></div><div class="gift-card bride"><h3>신부 측</h3><p>신부 이현아<br><button class="account-copy" data-account="110-317-955570" aria-label="신부 이현아 신한 계좌번호 복사">신한 110-317-955570</button><br><br>아버지 이석우<br><button class="account-copy" data-account="732-274271-02-001" aria-label="이석우 우리은행 계좌번호 복사">우리 732-274271-02-001</button><br><br>어머니 이금단<br><button class="account-copy" data-account="110-126-756683" aria-label="이금단 신한 계좌번호 복사">신한 110-126-756683</button></p></div></div></section>
+<section class="section reveal" id="guestbook"><div class="kicker">GUESTBOOK</div><h2>축하의 한마디 ♡</h2><p class="subcopy">저희의 시작을 따뜻한 말로 축복해 주세요.</p><form id="guestbook-form" class="guestbook-form"><label for="guestbook-name">이름</label><input id="guestbook-name" name="name" maxlength="30" autocomplete="name" placeholder="성함을 입력해 주세요" required><label for="guestbook-message">축하 메시지</label><textarea id="guestbook-message" name="message" maxlength="500" rows="4" placeholder="축하와 응원의 한마디를 남겨주세요 ♡" required></textarea><div class="guestbook-hp" aria-hidden="true"><label for="guestbook-website">Website</label><input id="guestbook-website" name="website" tabindex="-1" autocomplete="off"></div><button type="submit" id="guestbook-submit">축하 메시지 남기기 ♡</button><p id="guestbook-status" class="guestbook-status" role="status" aria-live="polite"></p></form><div id="guestbook-entries" class="guestbook-entries"><p class="guestbook-status">메시지를 불러오는 중입니다…</p></div><button type="button" id="guestbook-more" class="guestbook-more" hidden>이전 축하 메시지 더 보기</button></section>
 <footer><div class="footer-title">See You There!</div><p>저희의 새로운 시작을 함께 축복해 주세요.<br>보내주신 마음 잊지 않고 예쁘게 잘 살겠습니다.</p><div class="footer-names">태열 ♥ 현아</div><p>2027. 02. 20 · WI컨벤션센터 I홀</p></footer>
 </main>
 <div class="ambience" id="ambience" aria-hidden="true"></div>
@@ -654,6 +672,18 @@ document.querySelectorAll(".account-copy").forEach(button=>button.addEventListen
  viewer.addEventListener('touchstart',function(e){startX=e.changedTouches[0].clientX;},{passive:true});
  viewer.addEventListener('touchend',function(e){if(startX===null)return;let dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>45)show(index+(dx<0?1:-1));startX=null;},{passive:true});
  document.addEventListener('keydown',function(e){if(!viewer.classList.contains('is-visible'))return;if(e.key==='Escape')close();else if(e.key==='ArrowLeft')show(index-1);else if(e.key==='ArrowRight')show(index+1);});
+})();
+</script>
+
+<script>
+(function(){
+ const form=document.getElementById('guestbook-form');if(!form)return;
+ const entries=document.getElementById('guestbook-entries'),status=document.getElementById('guestbook-status'),more=document.getElementById('guestbook-more'),submit=document.getElementById('guestbook-submit');
+ let cursor=null;
+ function entry(item){const wrap=document.createElement('article');wrap.className='guestbook-entry';const head=document.createElement('div');head.className='guestbook-entry-head';const name=document.createElement('strong');name.className='guestbook-entry-name';name.textContent=item.name;const date=document.createElement('time');date.className='guestbook-entry-date';date.textContent=new Date(item.created_at).toLocaleDateString('ko-KR');head.append(name,date);const msg=document.createElement('p');msg.className='guestbook-entry-message';msg.textContent=item.message;wrap.append(head,msg);return wrap;}
+ async function load(append){try{const url='/api/guestbook'+(append&&cursor?'?before='+encodeURIComponent(cursor):'');const response=await fetch(url,{headers:{Accept:'application/json'}});if(!response.ok)throw Error('연결되지 않았습니다');const data=await response.json();if(!append)entries.replaceChildren();(data.items||[]).forEach(item=>entries.append(entry(item)));cursor=data.next_cursor||null;more.hidden=!cursor;if(!entries.children.length)entries.textContent='첫 번째 축하 메시지를 남겨주세요 ♡';}catch(e){if(!append)entries.textContent='방명록 저장소 연결을 준비 중입니다. 잠시 후 다시 확인해 주세요.';more.hidden=true;}}
+ form.addEventListener('submit',async function(ev){ev.preventDefault();if(!form.reportValidity())return;submit.disabled=true;status.textContent='메시지를 등록하는 중입니다…';try{const response=await fetch('/api/guestbook',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:form.elements.name.value.trim(),message:form.elements.message.value.trim(),website:form.elements.website.value})});const data=await response.json().catch(()=>({}));if(!response.ok)throw Error(data.error||'등록에 실패했습니다.');form.reset();status.textContent='축하 메시지가 등록되었습니다. 감사합니다 ♡';await load(false);}catch(e){status.textContent=e.message||'잠시 후 다시 시도해 주세요.';}finally{submit.disabled=false;}});
+ more.addEventListener('click',()=>load(true));load(false);
 })();
 </script>
 </body></html>
