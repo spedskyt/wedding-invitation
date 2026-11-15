@@ -409,6 +409,10 @@ html,body{background:#283527}
 .opening-script{color:#291b1b!important;-webkit-text-stroke:.65px #291b1b;text-shadow:0 2px 0 rgba(255,255,255,.95),0 3px 12px rgba(255,255,255,.9);font-weight:400}
 .opening-eyebrow,.opening-names,.opening-date{color:#291b1b!important;text-shadow:0 1px 3px #fff}
 .opening-bottom{color:#291b1b!important;background:rgba(255,250,244,.78);padding:7px 14px;border-radius:30px;text-shadow:none}
+
+/* Soft-focus the opening portrait only; keep lettering crisp. */
+.opening-photo{filter:blur(3px) brightness(.93);transform:scale(1.035)!important;animation:none!important}
+.opening-content,.opening-bottom{filter:none}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 </head>
