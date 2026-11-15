@@ -18,7 +18,7 @@
 <meta name="twitter:description" content="2027년 2월 20일 토요일 오후 1시 30분 · WI컨벤션센터 I홀">
 <meta name="twitter:image" content="https://wedding-invitation-dgw.pages.dev/assets/main-hero-original.jpg.jpg?v=og20261109">
 <title>Taeyeol & Hyuna — Wedding Invitation</title>
-<link rel="preload" as="image" href="assets/main-hero-optimized.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="opening-wedding.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Parisienne&display=swap" rel="stylesheet">
@@ -215,7 +215,7 @@ footer p{color:#777}
 
 .opening-screen{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden;background:#fff;color:#fff;transition:opacity .9s ease,visibility .9s ease}
 .opening-screen.is-opening{opacity:0;visibility:hidden;pointer-events:none}
-.opening-photo{position:absolute;inset:0;background:linear-gradient(180deg,#14203322 0%,#14203322 38%,#142033aa 100%),url("assets/main-hero-optimized.jpg") center 42%/cover no-repeat;transform:scale(1.08);animation:opening-zoom 8s ease-out forwards}
+.opening-photo{position:absolute;inset:0;background:linear-gradient(180deg,#14203322 0%,#14203322 38%,#142033aa 100%),url("opening-wedding.jpg") center 42%/cover no-repeat;transform:scale(1.08);animation:opening-zoom 8s ease-out forwards}
 .opening-content{position:relative;z-index:1;text-align:center;padding:28px 20px;animation:opening-rise 1.3s .2s both}
 .opening-eyebrow{font-size:10px;letter-spacing:.24em;margin-bottom:24px;color:#f5f2ed}
 .opening-names{font:400 clamp(36px,10vw,54px) "Gowun Batang",serif;letter-spacing:-.04em;text-shadow:0 2px 12px #18263b66}
@@ -395,6 +395,14 @@ html,body{background:#283527}
 .profile-section .profile-copy h3 a{font-size:13px}
 .profile-section .profile-copy p{font-size:12px}
 .profile-section .profile-copy .profile-desc{font-size:13px}
+
+/* Bright wedding portrait opening: warm chocolate lettering. */
+.opening-screen{background:#eee8df;color:#4b3026}
+.opening-photo{background-color:#eee8df;background-image:linear-gradient(180deg,rgba(255,248,238,.12),rgba(255,248,238,.05) 45%,rgba(255,248,238,.28)),url("opening-wedding.jpg");background-position:center 42%}
+.opening-script{color:#573326;text-shadow:0 1px 2px rgba(255,255,255,.9),0 3px 14px rgba(255,255,255,.65)}
+.opening-eyebrow,.opening-date,.opening-bottom{color:#4b3026;text-shadow:0 1px 5px rgba(255,255,255,.95)}
+.opening-names{color:#4b3026;text-shadow:0 1px 5px rgba(255,255,255,.9)}
+.opening-names span,.opening-divider{color:#8b564b}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 </head>
