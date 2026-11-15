@@ -4,7 +4,7 @@ export async function onRequestGet({env,request}){
  if(!env.DB)return reply({error:'방명록 데이터베이스 연결이 필요합니다.'},503);
  try{
   const before=new URL(request.url).searchParams.get('before');
-  const parsed=before&&/^\\d+$/.test(before)?Number(before):null;
+  const parsed=before&&/^\d+$/.test(before)?Number(before):null;
   const query=parsed?'SELECT id,name,message,created_at FROM guestbook WHERE id < ? ORDER BY id DESC LIMIT 21':'SELECT id,name,message,created_at FROM guestbook ORDER BY id DESC LIMIT 21';
   const result=parsed?await env.DB.prepare(query).bind(parsed).all():await env.DB.prepare(query).all();
   const rows=result.results||[];return reply({items:rows.slice(0,20),next_cursor:rows.length>20?String(rows[19].id):null});
