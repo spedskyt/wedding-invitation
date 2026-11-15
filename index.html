@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#283527">
 <meta name="description" content="태열과 현아의 결혼식에 초대합니다. 2027년 2월 20일 오후 1시 30분, WI컨벤션센터 I홀">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="태열 ♥ 현아의 결혼식">
@@ -18,6 +18,7 @@
 <meta name="twitter:description" content="2027년 2월 20일 토요일 오후 1시 30분 · WI컨벤션센터 I홀">
 <meta name="twitter:image" content="https://wedding-invitation-dgw.pages.dev/assets/main-hero-original.jpg.jpg?v=og20261109">
 <title>Taeyeol & Hyuna — Wedding Invitation</title>
+<link rel="preload" as="image" href="assets/main-hero-optimized.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Parisienne&display=swap" rel="stylesheet">
@@ -214,7 +215,7 @@ footer p{color:#777}
 
 .opening-screen{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden;background:#fff;color:#fff;transition:opacity .9s ease,visibility .9s ease}
 .opening-screen.is-opening{opacity:0;visibility:hidden;pointer-events:none}
-.opening-photo{position:absolute;inset:0;background:linear-gradient(180deg,#14203322 0%,#14203322 38%,#142033aa 100%),url("assets/main-hero-original.jpg.jpg?v=20261109-2") center 42%/cover no-repeat;transform:scale(1.08);animation:opening-zoom 8s ease-out forwards}
+.opening-photo{position:absolute;inset:0;background:linear-gradient(180deg,#14203322 0%,#14203322 38%,#142033aa 100%),url("assets/main-hero-optimized.jpg") center 42%/cover no-repeat;transform:scale(1.08);animation:opening-zoom 8s ease-out forwards}
 .opening-content{position:relative;z-index:1;text-align:center;padding:28px 20px;animation:opening-rise 1.3s .2s both}
 .opening-eyebrow{font-size:10px;letter-spacing:.24em;margin-bottom:24px;color:#f5f2ed}
 .opening-names{font:400 clamp(36px,10vw,54px) "Gowun Batang",serif;letter-spacing:-.04em;text-shadow:0 2px 12px #18263b66}
@@ -379,6 +380,11 @@ main.site{
 /* Center the couple behind the centered wedding lettering across screen sizes. */
 .hero{background-position:50% 43%}
 @media(max-width:600px){.hero{background-position:50% 43%}}
+
+/* Show a themed backdrop immediately while the opening image decodes. */
+html,body{background:#283527}
+.opening-screen{background:#283527}
+.opening-photo{background-color:#283527}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 </head>
