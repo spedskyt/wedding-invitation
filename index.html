@@ -666,12 +666,27 @@ if(!location.hash){
  window.addEventListener('pageshow',function(){window.scrollTo(0,0);});
  window.addEventListener('load',function(){window.scrollTo(0,0);},{once:true});
 }
-// Automatically fade out the opening cover; the page itself is never scroll-locked.
+// Keep the invitation underneath stationary until the opening finishes.
 (function(){
  const cover=document.getElementById("opening-screen");
  if(!cover)return;
+ const startY=window.scrollY||0;
+ document.body.style.position="fixed";
+ document.body.style.top=(-startY)+"px";
+ document.body.style.left="0";
+ document.body.style.right="0";
+ document.body.style.width="100%";
+ function unlock(){
+  document.body.style.position="";
+  document.body.style.top="";
+  document.body.style.left="";
+  document.body.style.right="";
+  document.body.style.width="";
+  window.scrollTo(0,startY);
+ }
  window.setTimeout(function(){
   cover.classList.add("is-opening");
+  unlock();
   window.setTimeout(function(){cover.remove();},1000);
  },4200);
 })();
