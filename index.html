@@ -528,6 +528,8 @@ html,body{background:#283527}
 @media(max-width:700px){
  .hero{box-sizing:border-box;width:100%;height:calc(100svh - 44px);min-height:calc(100svh - 44px);max-height:none;padding:24px 22px 34px;background-size:cover;background-position:center 43%}
 }
+/* Capture initial mobile viewport once: browser toolbar collapse must not resize hero. */
+@media(max-width:700px){.hero{height:calc(var(--initial-hero-viewport, 100svh) - 54px)!important;min-height:calc(var(--initial-hero-viewport, 100svh) - 54px)!important}}
 /* Use stable viewport units: dynamic dvh resizes the photo when mobile browser bars collapse on scroll. */
 /* Lock both intro and hero imagery to a single, non-animated crop on mobile. */
 @media(max-width:700px){
@@ -537,6 +539,10 @@ html,body{background:#283527}
 
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
+<script>
+/* Freeze the initial hero viewport before rendering; do not update on scroll/resize. */
+if(window.innerWidth<=700){document.documentElement.style.setProperty('--initial-hero-viewport',window.innerHeight+'px');}
+</script>
 </head>
 <body>
 <div class="opening-screen" id="opening-screen" role="status" aria-label="We're getting married">
