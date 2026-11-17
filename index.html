@@ -590,11 +590,18 @@ html,body{background:#283527}
 /* Give the third image in the right gallery column a little more vertical space. */
 .gallery img:nth-child(6){grid-row:16/span 7!important}
 .gallery img:nth-child(7){grid-row:23/span 8!important}
+
+/* Lock the opening image to the viewport size at page load.
+   Mobile browser address-bar collapse must not resize or zoom this photo. */
+@media(max-width:700px){
+ .opening-screen{top:0!important;bottom:auto!important;height:var(--initial-opening-viewport,100svh)!important;min-height:0!important;max-height:none!important}
+ .opening-photo{inset:0!important;background-size:cover!important;transform:none!important;animation:none!important;transition:none!important}
+}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 <script>
 /* Freeze the initial hero viewport before rendering; do not update on scroll/resize. */
-if(window.innerWidth<=700){document.documentElement.style.setProperty('--initial-hero-viewport',window.innerHeight+'px');}
+if(window.innerWidth<=700){document.documentElement.style.setProperty('--initial-hero-viewport',window.innerHeight+'px');document.documentElement.style.setProperty('--initial-opening-viewport',window.innerHeight+'px');}
 </script>
 </head>
 <body>
