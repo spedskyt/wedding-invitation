@@ -4,7 +4,7 @@ const validPassword=p=>typeof p==='string'&&/^\d{4,8}$/.test(p);
 const encode=bytes=>Array.from(bytes).map(b=>b.toString(16).padStart(2,'0')).join('');
 async function hashPassword(password,salt){
  const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveBits']);
- return encode(new Uint8Array(await crypto.subtle.deriveBits({name:'PBKDF2',salt:new TextEncoder().encode(salt),iterations:120000,hash:'SHA-256'},key,256)));
+ return encode(new Uint8Array(await crypto.subtle.deriveBits({name:'PBKDF2',salt:new TextEncoder().encode(salt),iterations:100000,hash:'SHA-256'},key,256)));
 }
 async function parseBody(request){
  if(!(request.headers.get('content-type')||'').includes('application/json'))throw {status:415,error:'올바르지 않은 요청입니다.'};
