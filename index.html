@@ -538,25 +538,26 @@ html,body{background:#283527}
 }
 
 
-/* Precisely bounded two-column collage: both columns end on the same baseline. */
-.gallery{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(34,minmax(0,1fr))!important;grid-auto-flow:row!important;grid-auto-rows:auto!important;gap:3px!important;width:100%;aspect-ratio:0.49;overflow:hidden;align-items:stretch;margin-top:24px}
-.gallery img,.gallery img:first-child{display:block!important;width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;max-width:100%!important;aspect-ratio:auto!important;object-fit:cover!important;object-position:center!important;border-radius:0!important;margin:0!important;align-self:stretch;grid-row:auto}
-.gallery img:first-child{object-position:center 35%!important}
-.gallery img:nth-child(1){grid-column:1!important;grid-row:1/span 7!important}
-.gallery img:nth-child(3){grid-column:1!important;grid-row:8/span 4!important}
-.gallery img:nth-child(5){grid-column:1!important;grid-row:12/span 5!important}
-.gallery img:nth-child(7){grid-column:1!important;grid-row:17/span 4!important}
-.gallery img:nth-child(9){grid-column:1!important;grid-row:21/span 5!important}
-.gallery img:nth-child(11){grid-column:1!important;grid-row:26/span 4!important}
-.gallery img:nth-child(13){grid-column:1!important;grid-row:30/span 5!important}
-.gallery img:nth-child(2){grid-column:2!important;grid-row:1/span 4!important}
-.gallery img:nth-child(4){grid-column:2!important;grid-row:5/span 6!important}
-.gallery img:nth-child(6){grid-column:2!important;grid-row:11/span 4!important}
-.gallery img:nth-child(8){grid-column:2!important;grid-row:15/span 5!important}
-.gallery img:nth-child(10){grid-column:2!important;grid-row:20/span 5!important}
-.gallery img:nth-child(12){grid-column:2!important;grid-row:25/span 5!important}
-.gallery img:nth-child(14){grid-column:2!important;grid-row:30/span 5!important}
-@media(min-width:701px){.gallery{aspect-ratio:0.68}}
+/* Editorial wedding collage: full-length portraits get taller frames; both columns align. */
+.gallery{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(48,minmax(0,1fr))!important;grid-auto-flow:row!important;gap:3px!important;width:100%;aspect-ratio:0.38;overflow:hidden;margin-top:24px;align-items:stretch}
+.gallery img,.gallery img:first-child{display:block!important;width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;max-width:100%!important;aspect-ratio:auto!important;object-fit:cover!important;object-position:center center!important;border-radius:0!important;margin:0!important;grid-row:auto}
+.gallery img:nth-child(1){grid-column:1!important;grid-row:1/span 11!important}
+.gallery img:nth-child(3){grid-column:1!important;grid-row:12/span 5!important}
+.gallery img:nth-child(5){grid-column:1!important;grid-row:17/span 8!important}
+.gallery img:nth-child(7){grid-column:1!important;grid-row:25/span 5!important}
+.gallery img:nth-child(9){grid-column:1!important;grid-row:30/span 8!important}
+.gallery img:nth-child(11){grid-column:1!important;grid-row:38/span 5!important}
+.gallery img:nth-child(13){grid-column:1!important;grid-row:43/span 6!important}
+.gallery img:nth-child(2){grid-column:2!important;grid-row:1/span 5!important}
+.gallery img:nth-child(4){grid-column:2!important;grid-row:6/span 10!important}
+.gallery img:nth-child(6){grid-column:2!important;grid-row:16/span 6!important}
+.gallery img:nth-child(8){grid-column:2!important;grid-row:22/span 9!important}
+.gallery img:nth-child(10){grid-column:2!important;grid-row:31/span 5!important}
+.gallery img:nth-child(12){grid-column:2!important;grid-row:36/span 7!important}
+.gallery img:nth-child(14){grid-column:2!important;grid-row:43/span 6!important}
+.gallery img:nth-child(1),.gallery img:nth-child(4),.gallery img:nth-child(7),.gallery img:nth-child(10){object-position:center 32%!important}
+.gallery img:nth-child(3),.gallery img:nth-child(11){object-position:center 24%!important}
+@media(min-width:701px){.gallery{aspect-ratio:0.48;gap:5px!important}}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 <script>
