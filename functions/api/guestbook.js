@@ -19,7 +19,7 @@ async function authorize(env,id,password){
  const actual=await hashPassword(password,row.password_salt);
  if(actual!==row.password_hash)throw {status:403,error:'비밀번호가 일치하지 않습니다.'};
 }
-const fail=e=>reply({error:e?.error||'요청을 처리하지 못했습니다.'},e?.status||500);
+const fail=e=>{const status=e?.status||500;if(status>=500)console.error('guestbook failure:',e?.stack||e?.message||String(e));return reply({error:e?.error||(status>=500?'서버 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.':'요청을 처리하지 못했습니다.')},status);};
 export async function onRequestGet({env,request}){
  if(!env.DB)return reply({error:'방명록 데이터베이스 연결이 필요합니다.'},503);
  try{
