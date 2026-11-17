@@ -560,6 +560,28 @@ html,body{background:#283527}
 /* The 11th image is the groom portrait: anchor the crop near the top to keep his face visible. */
 .gallery img:nth-child(11){object-position:center 8%!important}
 @media(min-width:701px){.gallery{aspect-ratio:0.48;gap:5px!important}}
+
+/* Envelope-to-photo invitation opening, modeled on the supplied motion reference. */
+.postcard-opening{background:#53091b!important;isolation:isolate;perspective:900px}
+.postcard-envelope{position:absolute;inset:0;z-index:3;overflow:hidden;background:radial-gradient(ellipse at 50% 65%,#79162a 0%,#560b1d 55%,#3e0715 100%);animation:postcard-envelope-exit .7s 2.55s ease-in-out both}
+.postcard-flap{position:absolute;top:17%;left:-8%;width:116%;height:42%;background:#650d21;clip-path:polygon(50% 0,100% 100%,0 100%);filter:drop-shadow(0 5px 9px #28040b66);transform-origin:50% 100%;animation:postcard-flap-open .75s 1.35s ease-in-out both}
+.postcard-letter{position:absolute;z-index:2;top:43%;left:50%;width:min(82vw,390px);height:min(44vh,335px);background:#f7f3ec;color:#3c3331;transform:translate(-50%,-50%) rotate(-1deg);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:9px;box-shadow:0 9px 24px #21040d55;clip-path:polygon(0 1%,4% 0,10% 1%,18% 0,27% 1%,36% 0,47% 1%,57% 0,68% 1%,78% 0,89% 1%,97% 0,100% 2%,99% 13%,100% 24%,99% 36%,100% 48%,99% 62%,100% 76%,99% 88%,100% 98%,91% 100%,79% 99%,66% 100%,53% 99%,39% 100%,27% 99%,13% 100%,2% 99%,0 96%,1% 82%,0 66%,1% 49%,0 31%,1% 16%);animation:postcard-letter-rise 1.15s 1.65s ease-in-out both}
+.postcard-letter-names{font:400 clamp(20px,5.5vw,27px) "Gowun Batang",serif;letter-spacing:.08em}
+.postcard-letter-names span{color:#a4485b;font-size:.8em}
+.postcard-letter-caption{font:400 clamp(13px,3.8vw,17px) "Gowun Batang",serif}
+.postcard-letter-date{font:11px "Noto Sans KR",sans-serif;letter-spacing:.18em;color:#877c75;margin-top:10px}
+.postcard-pocket{position:absolute;z-index:4;inset:52% 0 0;background:linear-gradient(145deg,#6d1025,#480719);clip-path:polygon(0 0,50% 48%,100% 0,100% 100%,0 100%);box-shadow:0 -10px 24px #20030b55}
+.postcard-seal{position:absolute;z-index:5;top:69%;left:50%;width:61px;height:61px;border-radius:50%;transform:translate(-50%,-50%);display:grid;place-items:center;font:23px Georgia,serif;color:#e8c6b9;background:radial-gradient(circle at 35% 28%,#bb3a50,#82132b 65%,#5e091b);border:4px double #d18483;box-shadow:0 4px 9px #23040b99;animation:postcard-seal-fade .45s 1.2s both}
+.postcard-reveal{position:absolute;inset:0;opacity:0;transform:scale(1.025);animation:postcard-photo-reveal .85s 2.7s ease-out forwards}
+.postcard-reveal .opening-photo{opacity:.8!important}
+.postcard-reveal .opening-content{animation:none!important}
+.postcard-reveal .opening-script,.postcard-reveal .opening-names,.postcard-reveal .opening-date{animation:none!important;opacity:1!important;clip-path:none!important}
+@keyframes postcard-flap-open{0%{transform:rotateX(0)}100%{transform:rotateX(160deg)}}
+@keyframes postcard-letter-rise{0%,18%{transform:translate(-50%,-25%) rotate(-1deg)}100%{transform:translate(-50%,-70%) rotate(-1deg)}}
+@keyframes postcard-seal-fade{to{opacity:0;transform:translate(-50%,-65%) scale(.75)}}
+@keyframes postcard-envelope-exit{0%{opacity:1}100%{opacity:0;visibility:hidden}}
+@keyframes postcard-photo-reveal{to{opacity:1;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.postcard-envelope{animation:none;display:none}.postcard-reveal{animation:none;opacity:1;transform:none}}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 <script>
@@ -568,15 +590,22 @@ if(window.innerWidth<=700){document.documentElement.style.setProperty('--initial
 </script>
 </head>
 <body>
-<div class="opening-screen" id="opening-screen" role="status" aria-label="We're getting married">
- <div class="opening-photo"></div>
- <div class="opening-content">
-  <div class="opening-eyebrow">A SPECIAL INVITATION</div>
-  <div class="opening-script">We're getting<br>married!</div>
-  <div class="opening-names">TAEYEOL <span class="opening-heart" aria-label="하트">♡</span> HYUNA</div>
-  <div class="opening-date">FEBRUARY 20, 2027 · 1:30 PM</div>
+<div class="opening-screen postcard-opening" id="opening-screen" role="status" aria-label="태열과 현아의 결혼식 초대장">
+ <div class="postcard-envelope" aria-hidden="true">
+  <div class="postcard-flap"></div>
+  <div class="postcard-letter"><div class="postcard-letter-names">태열 <span>♥</span> 현아</div><div class="postcard-letter-caption">저희 결혼합니다!</div><div class="postcard-letter-date">2027. 02. 20</div></div>
+  <div class="postcard-pocket"></div><div class="postcard-seal">♥</div>
  </div>
- <div class="opening-bottom">WITH LOVE, TAEYEOL &amp; HYUNA</div>
+ <div class="postcard-reveal">
+  <div class="opening-photo"></div>
+  <div class="opening-content">
+   <div class="opening-eyebrow">A SPECIAL INVITATION</div>
+   <div class="opening-script">We're getting<br>married!</div>
+   <div class="opening-names">TAEYEOL <span class="opening-heart" aria-label="하트">♡</span> HYUNA</div>
+   <div class="opening-date">FEBRUARY 20, 2027 · 1:30 PM</div>
+  </div>
+  <div class="opening-bottom">WITH LOVE, TAEYEOL &amp; HYUNA</div>
+ </div>
 </div>
 <main class="site" id="invitation-site">
 <nav class="nav"><a class="menu-mark" href="#story" aria-label="이야기 보기">☰</a><a class="brand" href="#">태열 <span>♥</span> 현아</a><a class="sound-mark" href="#music-toggle" aria-label="배경음악">♫</a></nav>
@@ -636,7 +665,7 @@ if(!location.hash){
  window.setTimeout(function(){
   cover.classList.add("is-opening");
   window.setTimeout(function(){cover.remove();},1000);
- },4200);
+ },4800);
 })();
 
 /* Gentle decorative particles */
