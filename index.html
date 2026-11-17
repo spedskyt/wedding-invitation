@@ -610,6 +610,20 @@ html,body{background:#283527}
 .postcard-pocket{z-index:5!important;inset:51% 0 0!important;background:linear-gradient(145deg,#722039 0%,#570f23 52%,#43091a 100%)!important;clip-path:polygon(0 0,50% 22%,100% 0,100% 100%,0 100%)!important;box-shadow:inset 0 3px 7px #25000c44!important}
 .postcard-seal{top:73%!important;width:58px!important;height:58px!important;font-size:28px!important}
 @media(max-width:700px){.postcard-letter{height:min(46vh,360px)!important;top:47%!important}.postcard-pocket{inset:49% 0 0!important}.postcard-typed{top:11%}}
+
+/* Frame-matched opening: full-width open envelope, half-inserted deckle-edge paper. */
+.postcard-opening{background:#4a0a16!important}
+.postcard-envelope{background:radial-gradient(ellipse at 20% 10%,#78313a 0%,#58101d 53%,#380811 100%)!important}
+.postcard-flap{position:absolute!important;z-index:1!important;left:50%!important;top:17%!important;width:100vw!important;height:35vh!important;max-width:none!important;transform:translateX(-50%)!important;clip-path:polygon(0 100%,50% 0,100% 100%)!important;background:linear-gradient(135deg,#843a45,#631e2c 60%,#4d1320)!important;filter:drop-shadow(0 6px 7px #21030b60)!important;animation:none!important}
+.postcard-letter{position:absolute!important;z-index:3!important;left:50%!important;top:45%!important;width:89vw!important;max-width:460px!important;height:31vh!important;min-height:210px!important;transform:translate(-50%,-50%)!important;animation:none!important;background:linear-gradient(115deg,#e9e8e6 0%,#fafafa 22%,#f5f4f2 64%,#e8e7e4 100%)!important;clip-path:polygon(0% 7%,2% 5%,4% 6%,7% 3%,10% 4%,13% 2%,16% 4%,20% 2%,24% 3%,28% 1%,33% 2%,37% 1%,42% 3%,47% 1%,52% 2%,57% 1%,62% 2%,68% 1%,73% 3%,78% 2%,83% 4%,88% 2%,93% 4%,97% 3%,100% 6%,99% 15%,100% 24%,99% 35%,100% 46%,99% 56%,100% 69%,98% 81%,88% 89%,75% 96%,50% 100%,25% 96%,12% 87%,1% 77%,0% 65%,1% 54%,0% 43%,1% 32%,0% 21%)!important;border:0!important;box-shadow:0 3px 8px #1d030c55!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:0 20px 15px!important;box-sizing:border-box!important}
+.postcard-letter:before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(94deg,#6e66600a 0px,transparent 1px,transparent 5px);mix-blend-mode:multiply}
+.postcard-typed{position:relative;z-index:1;gap:7px!important;color:#77716d!important;font-family:"Gowun Batang",serif!important;font-size:clamp(11px,3.1vw,14px)!important;letter-spacing:.05em!important;transform:translateY(-7px)}
+.postcard-pocket{position:absolute!important;z-index:4!important;left:0!important;top:51%!important;bottom:0!important;right:0!important;inset:51% 0 0!important;width:100vw!important;height:auto!important;transform:none!important;clip-path:polygon(0 0,50% 53%,100% 0,100% 100%,0 100%)!important;background:linear-gradient(145deg,#8a3541 0%,#6b1b2b 42%,#470e1c 100%)!important;box-shadow:none!important}
+.postcard-pocket:after{content:"";position:absolute;inset:0;background:linear-gradient(30deg,#a34c54 0%,transparent 43%,#330811 100%);clip-path:polygon(0 0,50% 53%,100% 0,100% 100%,0 100%);opacity:.45}
+.postcard-seal{z-index:6!important;top:79%!important;left:50%!important;width:62px!important;height:62px!important;transform:translate(-50%,-50%)!important;animation:none!important;border:5px ridge #ad303d!important;border-radius:50%!important;background:radial-gradient(circle at 30% 23%,#bf3544,#7c0616 70%,#4b020d)!important;color:#23050a!important;font:italic 38px Georgia,serif!important;text-shadow:0 1px 1px #f28b8c66!important;box-shadow:0 3px 8px #25020d88,inset 0 0 0 3px #620a18!important}
+.postcard-reveal{animation:postcard-photo-reveal .6s 3.2s ease-out forwards!important}
+.postcard-envelope{animation:postcard-envelope-exit .6s 3.2s ease forwards!important}
+@media(prefers-reduced-motion:reduce){.postcard-envelope{display:none!important}.postcard-reveal{animation:none!important;opacity:1!important}}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 <script>
@@ -684,7 +698,7 @@ if(!location.hash){
  window.setTimeout(function(){
   cover.classList.add("is-opening");
   window.setTimeout(function(){cover.remove();},1000);
- },4600);
+ },4200);
 })();
 
 /* Gentle decorative particles */
