@@ -582,6 +582,24 @@ html,body{background:#283527}
 @keyframes postcard-envelope-exit{0%{opacity:1}100%{opacity:0;visibility:hidden}}
 @keyframes postcard-photo-reveal{to{opacity:1;transform:scale(1)}}
 @media(prefers-reduced-motion:reduce){.postcard-envelope{animation:none;display:none}.postcard-reveal{animation:none;opacity:1;transform:none}}
+
+/* Reference-matched opening: stationery remains fixed while Korean message types in. */
+.postcard-opening{background:#4b0616!important}
+.postcard-envelope{position:absolute;inset:0;z-index:3;background:linear-gradient(135deg,#550817,#3d0411);animation:postcard-envelope-exit .55s 3.55s ease forwards!important}
+.postcard-flap{position:absolute;top:19%;left:0;width:100%;height:39%;background:#6a1126;clip-path:polygon(50% 0,100% 100%,0 100%);transform:none!important;animation:none!important;filter:none}
+.postcard-letter{position:absolute;z-index:4;top:50%;left:50%;width:min(84vw,390px);height:min(36vh,270px);background:#f8f6f1;transform:translate(-50%,-50%)!important;animation:none!important;box-shadow:0 3px 12px #27050a33;display:grid;place-items:center;clip-path:polygon(0 2%,7% 0,15% 1%,25% 0,37% 1%,50% 0,62% 1%,74% 0,85% 1%,94% 0,100% 2%,99% 14%,100% 30%,99% 50%,100% 70%,99% 85%,100% 98%,90% 100%,76% 99%,62% 100%,48% 99%,35% 100%,20% 99%,8% 100%,0 98%,1% 78%,0 57%,1% 36%)}
+.postcard-typed{display:flex;flex-direction:column;align-items:center;gap:9px;font-family:"Gowun Batang",serif;color:#514942;font-size:clamp(13px,3.4vw,17px);letter-spacing:.07em;white-space:nowrap}
+.postcard-type-name,.postcard-type-message{display:block;overflow:hidden;width:0;max-width:max-content}
+.postcard-type-name{animation:postcard-type-name 1.2s .45s steps(7,end) forwards}
+.postcard-type-message{animation:postcard-type-message 1.5s 1.75s steps(9,end) forwards}
+.postcard-pocket{position:absolute;z-index:5;inset:64% 0 0;background:linear-gradient(155deg,#661025,#430717);clip-path:polygon(0 0,50% 57%,100% 0,100% 100%,0 100%);box-shadow:none}
+.postcard-seal{position:absolute;z-index:6;top:82%;left:50%;width:64px;height:64px;transform:translate(-50%,-50%)!important;animation:none!important;display:grid;place-items:center;color:#a9495a;font:italic 35px Georgia,serif;border:5px double #9b233b;border-radius:50%;background:radial-gradient(circle at 32% 24%,#b8213e,#78081e 70%,#4d0715);box-shadow:0 3px 9px #24030a99}
+.postcard-reveal{position:absolute;inset:0;opacity:0;transform:none!important;animation:postcard-photo-reveal .65s 3.55s ease-out forwards!important}
+@keyframes postcard-type-name{to{width:7em}}
+@keyframes postcard-type-message{to{width:9em}}
+@keyframes postcard-envelope-exit{to{opacity:0;visibility:hidden}}
+@keyframes postcard-photo-reveal{to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.postcard-envelope{display:none!important}.postcard-reveal{opacity:1!important;animation:none!important}.postcard-type-name,.postcard-type-message{width:auto!important;animation:none!important}}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 <script>
@@ -593,19 +611,10 @@ if(window.innerWidth<=700){document.documentElement.style.setProperty('--initial
 <div class="opening-screen postcard-opening" id="opening-screen" role="status" aria-label="태열과 현아의 결혼식 초대장">
  <div class="postcard-envelope" aria-hidden="true">
   <div class="postcard-flap"></div>
-  <div class="postcard-letter"><div class="postcard-letter-names">태열 <span>♥</span> 현아</div><div class="postcard-letter-caption">저희 결혼합니다!</div><div class="postcard-letter-date">2027. 02. 20</div></div>
-  <div class="postcard-pocket"></div><div class="postcard-seal">♥</div>
+  <div class="postcard-letter"><div class="postcard-typed"><span class="postcard-type-name">태열 ♥ 현아</span><span class="postcard-type-message">저희 결혼합니다!</span></div></div>
+  <div class="postcard-pocket"></div><div class="postcard-seal">W</div>
  </div>
- <div class="postcard-reveal">
-  <div class="opening-photo"></div>
-  <div class="opening-content">
-   <div class="opening-eyebrow">A SPECIAL INVITATION</div>
-   <div class="opening-script">We're getting<br>married!</div>
-   <div class="opening-names">TAEYEOL <span class="opening-heart" aria-label="하트">♡</span> HYUNA</div>
-   <div class="opening-date">FEBRUARY 20, 2027 · 1:30 PM</div>
-  </div>
-  <div class="opening-bottom">WITH LOVE, TAEYEOL &amp; HYUNA</div>
- </div>
+ <div class="postcard-reveal"><div class="opening-photo"></div><div class="opening-content"><div class="opening-eyebrow">A SPECIAL INVITATION</div><div class="opening-script">We're getting<br>married!</div><div class="opening-names">TAEYEOL <span class="opening-heart" aria-label="하트">♡</span> HYUNA</div><div class="opening-date">FEBRUARY 20, 2027 · 1:30 PM</div></div><div class="opening-bottom">WITH LOVE, TAEYEOL &amp; HYUNA</div></div>
 </div>
 <main class="site" id="invitation-site">
 <nav class="nav"><a class="menu-mark" href="#story" aria-label="이야기 보기">☰</a><a class="brand" href="#">태열 <span>♥</span> 현아</a><a class="sound-mark" href="#music-toggle" aria-label="배경음악">♫</a></nav>
@@ -665,7 +674,7 @@ if(!location.hash){
  window.setTimeout(function(){
   cover.classList.add("is-opening");
   window.setTimeout(function(){cover.remove();},1000);
- },4800);
+ },4600);
 })();
 
 /* Gentle decorative particles */
