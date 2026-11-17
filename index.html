@@ -600,6 +600,16 @@ html,body{background:#283527}
 @keyframes postcard-envelope-exit{to{opacity:0;visibility:hidden}}
 @keyframes postcard-photo-reveal{to{opacity:1}}
 @media(prefers-reduced-motion:reduce){.postcard-envelope{display:none!important}.postcard-reveal{opacity:1!important;animation:none!important}.postcard-type-name,.postcard-type-message{width:auto!important;animation:none!important}}
+
+/* Refined half-inserted letter: exposed upper half, lower half tucked behind envelope pocket. */
+.postcard-envelope{background:radial-gradient(ellipse at 50% 35%,#6c1729 0%,#4c0b1b 68%,#390713 100%)!important}
+.postcard-flap{top:15%!important;height:42%!important;background:linear-gradient(160deg,#7a2637,#5a1023)!important;clip-path:polygon(50% 0,100% 100%,0 100%)!important;opacity:.78}
+.postcard-letter{top:50%!important;height:min(50vh,390px)!important;width:min(84vw,390px)!important;background-color:#f5f1e9!important;background-image:repeating-linear-gradient(0deg,rgba(99,78,60,.018) 0px,rgba(99,78,60,.018) 1px,transparent 1px,transparent 3px),repeating-linear-gradient(90deg,rgba(118,91,72,.015) 0px,rgba(118,91,72,.015) 1px,transparent 1px,transparent 4px),linear-gradient(135deg,#faf7f1 0%,#f2ede3 56%,#eee7da 100%)!important;box-shadow:0 2px 2px #fff8 inset,0 12px 28px #20020b55!important;clip-path:none!important;border:1px solid #e7dfd3;border-radius:1px!important}
+.postcard-letter:before{content:"";position:absolute;inset:7px;border:1px solid rgba(149,128,106,.13);pointer-events:none}
+.postcard-typed{position:absolute;top:12%;left:0;width:100%;height:31%;justify-content:center;gap:13px!important;color:#463d3a!important;font-size:clamp(15px,3.7vw,19px)!important}
+.postcard-pocket{z-index:5!important;inset:51% 0 0!important;background:linear-gradient(145deg,#722039 0%,#570f23 52%,#43091a 100%)!important;clip-path:polygon(0 0,50% 22%,100% 0,100% 100%,0 100%)!important;box-shadow:inset 0 3px 7px #25000c44!important}
+.postcard-seal{top:73%!important;width:58px!important;height:58px!important;font-size:28px!important}
+@media(max-width:700px){.postcard-letter{height:min(46vh,360px)!important;top:47%!important}.postcard-pocket{inset:49% 0 0!important}.postcard-typed{top:11%}}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 <script>
