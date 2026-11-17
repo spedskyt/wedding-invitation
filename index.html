@@ -411,7 +411,7 @@ html,body{background:#283527}
 .opening-bottom{color:#291b1b!important;background:rgba(255,250,244,.78);padding:7px 14px;border-radius:30px;text-shadow:none}
 
 /* Soft-focus the opening portrait only; keep lettering crisp. */
-.opening-photo{filter:none;opacity:.70;transform:scale(1.035)!important;animation:none!important}
+.opening-photo{filter:none;opacity:.70;transform:none!important;animation:none!important}
 .opening-content,.opening-bottom{filter:none}
 
 /* Match main-photo lettering to the romantic opening script. */
@@ -529,6 +529,12 @@ html,body{background:#283527}
  .hero{box-sizing:border-box;width:100%;height:calc(100svh - 44px);min-height:calc(100svh - 44px);max-height:none;padding:24px 22px 34px;background-size:cover;background-position:center 43%}
 }
 /* Use stable viewport units: dynamic dvh resizes the photo when mobile browser bars collapse on scroll. */
+/* Lock both intro and hero imagery to a single, non-animated crop on mobile. */
+@media(max-width:700px){
+ .hero{height:calc(100svh - 54px);min-height:calc(100svh - 54px);max-height:none;background-attachment:scroll;background-size:cover;background-position:50% 43%;transition:none!important;animation:none!important;transform:none!important}
+ .opening-photo{transform:none!important;animation:none!important;transition:none!important}
+}
+
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 </head>
