@@ -523,6 +523,12 @@ html,body{background:#283527}
 /* Map service icons, balanced with the invitation's minimal button styling. */
 .button-row.map-links a{gap:7px;white-space:nowrap;font-size:12px;padding:9px 5px}
 .button-row.map-links a .map-logo{width:19px;height:19px;object-fit:contain;flex:none;border-radius:4px}
+
+/* Full-viewport wedding hero on smartphones, respecting the sticky header. */
+@media(max-width:700px){
+ .hero{box-sizing:border-box;width:100%;height:calc(100svh - 54px);min-height:calc(100svh - 54px);max-height:none;padding:24px 22px 34px;background-size:cover;background-position:center 43%}
+}
+@supports(height:100dvh){@media(max-width:700px){.hero{height:calc(100dvh - 54px);min-height:calc(100dvh - 54px)}}}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 </head>
