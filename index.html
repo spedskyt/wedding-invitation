@@ -586,6 +586,10 @@ html,body{background:#283527}
 
 /* Right column, second image from bottom: center the person’s torso in the crop. */
 .gallery img:nth-child(11){object-position:50% 62%!important}
+
+/* Right-column third photo gets a taller frame; fourth shows a wider face-centered crop. */
+.gallery img:nth-child(6){grid-row:16/span 8!important}
+.gallery img:nth-child(7){grid-row:24/span 7!important;object-fit:contain!important;object-position:50% 35%!important;background:#f4f2f0!important}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 <script>
