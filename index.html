@@ -566,6 +566,23 @@ html,body{background:#283527}
 @media(max-width:700px){
  .hero{height:calc(var(--initial-hero-viewport, 100svh) - 54px + 10px)!important;min-height:calc(var(--initial-hero-viewport, 100svh) - 54px + 10px)!important;margin-bottom:-10px;background-size:cover!important;background-position:50% 43%!important}
 }
+
+/* 13-photo collage: remove seventh photo, enlarge the black-and-white photo below it. */
+.gallery img:nth-child(1){grid-column:1!important;grid-row:1/span 11!important}
+.gallery img:nth-child(2){grid-column:2!important;grid-row:1/span 5!important}
+.gallery img:nth-child(3){grid-column:1!important;grid-row:12/span 5!important}
+.gallery img:nth-child(4){grid-column:2!important;grid-row:6/span 10!important}
+.gallery img:nth-child(5){grid-column:1!important;grid-row:17/span 8!important}
+.gallery img:nth-child(6){grid-column:2!important;grid-row:16/span 6!important}
+.gallery img:nth-child(7){grid-column:2!important;grid-row:22/span 9!important}
+.gallery img:nth-child(8){grid-column:1!important;grid-row:25/span 13!important}
+.gallery img:nth-child(9){grid-column:2!important;grid-row:31/span 5!important}
+.gallery img:nth-child(10){grid-column:1!important;grid-row:38/span 5!important}
+.gallery img:nth-child(11){grid-column:2!important;grid-row:36/span 7!important}
+.gallery img:nth-child(12){grid-column:1!important;grid-row:43/span 6!important}
+.gallery img:nth-child(13){grid-column:2!important;grid-row:43/span 6!important}
+.gallery img:nth-child(8){object-position:center center!important}
+.gallery img:nth-child(10){object-position:center 8%!important}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 <script>
@@ -613,7 +630,7 @@ if(window.innerWidth<=700){document.documentElement.style.setProperty('--initial
 <div class="history-item left"><div class="history-photo"><img src="assets/history-second-anniversary.jpg.png" alt="2주년 사진"></div><div class="history-text"><h3>2주년</h3><p>두 번째 일 년도 함께하며<br>더 깊은 사랑을 나눴어요.</p><time>2026</time></div></div>
 <div class="history-item right"><div class="history-photo"><img class="wedding-arch-photo" src="assets/history-wedding-day.jpg.jpg" alt="아치 앞에 선 태열과 현아의 웨딩 사진"></div><div class="history-text"><h3>Wedding Day!</h3><p>저희는 이 날,<br>부부가 됩니다.</p><time>2027.02.20</time></div></div>
 </div></section>
-<section class="section dark reveal"><div class="kicker">GALLERY</div><h2>GALLERY</h2><div class="gallery"><img src="assets/gallery-01.jpg" alt="태열과 현아 웨딩사진 1" loading="lazy" decoding="async"><img src="assets/gallery-02.jpg" alt="태열과 현아 웨딩사진 2" loading="lazy" decoding="async"><img src="assets/gallery-12.jpg" alt="태열과 현아 웨딩사진 12" loading="lazy" decoding="async"><img src="assets/gallery-03.jpg" alt="태열과 현아 웨딩사진 3" loading="lazy" decoding="async"><img src="assets/gallery-04.jpg" alt="태열과 현아 웨딩사진 4" loading="lazy" decoding="async"><img src="assets/gallery-05.jpg" alt="태열과 현아 웨딩사진 5" loading="lazy" decoding="async"><img src="assets/gallery-06.jpg" alt="태열과 현아 웨딩사진 6" loading="lazy" decoding="async"><img src="assets/gallery-bride.png.png" alt="신부 현아 웨딩사진" loading="lazy" decoding="async"><img src="assets/gallery-07.jpg" alt="태열과 현아 웨딩사진 7" loading="lazy" decoding="async"><img src="assets/gallery-08.jpg" alt="태열과 현아 웨딩사진 8" loading="lazy" decoding="async"><img src="assets/gallery-groom.jpg.png" alt="신랑 태열 웨딩사진" loading="lazy" decoding="async"><img src="assets/gallery-09.jpg" alt="태열과 현아 웨딩사진 9" loading="lazy" decoding="async"><img src="assets/gallery-10.jpg" alt="태열과 현아 웨딩사진 10" loading="lazy" decoding="async"><img src="assets/gallery-11.jpg" alt="태열과 현아 웨딩사진 11" loading="lazy" decoding="async"></div></section>
+<section class="section dark reveal"><div class="kicker">GALLERY</div><h2>GALLERY</h2><div class="gallery"><img src="assets/gallery-01.jpg" alt="태열과 현아 웨딩사진 1" loading="lazy" decoding="async"><img src="assets/gallery-02.jpg" alt="태열과 현아 웨딩사진 2" loading="lazy" decoding="async"><img src="assets/gallery-12.jpg" alt="태열과 현아 웨딩사진 12" loading="lazy" decoding="async"><img src="assets/gallery-03.jpg" alt="태열과 현아 웨딩사진 3" loading="lazy" decoding="async"><img src="assets/gallery-04.jpg" alt="태열과 현아 웨딩사진 4" loading="lazy" decoding="async"><img src="assets/gallery-05.jpg" alt="태열과 현아 웨딩사진 5" loading="lazy" decoding="async"><img src="assets/gallery-bride.png.png" alt="신부 현아 웨딩사진" loading="lazy" decoding="async"><img src="assets/gallery-07.jpg" alt="태열과 현아 웨딩사진 7" loading="lazy" decoding="async"><img src="assets/gallery-08.jpg" alt="태열과 현아 웨딩사진 8" loading="lazy" decoding="async"><img src="assets/gallery-groom.jpg.png" alt="신랑 태열 웨딩사진" loading="lazy" decoding="async"><img src="assets/gallery-09.jpg" alt="태열과 현아 웨딩사진 9" loading="lazy" decoding="async"><img src="assets/gallery-10.jpg" alt="태열과 현아 웨딩사진 10" loading="lazy" decoding="async"><img src="assets/gallery-11.jpg" alt="태열과 현아 웨딩사진 11" loading="lazy" decoding="async"></div></section>
 
 
 <section class="section reveal" id="gift"><div class="kicker">With Love</div><h2>마음 전하실 곳</h2><p class="copy">축하의 마음을 보내주시는 모든 분께<br>감사한 마음 오래도록 간직하겠습니다.</p><div class="gift-grid">
