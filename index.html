@@ -561,6 +561,11 @@ html,body{background:#283527}
 .gallery img:nth-child(11){object-position:center 8%!important}
 @media(min-width:701px){.gallery{aspect-ratio:0.48;gap:5px!important}}
 
+
+/* Remove the thin light strip below the mobile hero without resizing on scroll. */
+@media(max-width:700px){
+ .hero{height:calc(var(--initial-hero-viewport, 100svh) - 54px + 10px)!important;min-height:calc(var(--initial-hero-viewport, 100svh) - 54px + 10px)!important;margin-bottom:-10px;background-size:cover!important;background-position:50% 43%!important}
+}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 <script>
