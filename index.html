@@ -538,24 +538,25 @@ html,body{background:#283527}
 }
 
 
-/* Asymmetric two-column wedding photo collage, inspired by the supplied reference. */
-.gallery{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-auto-flow:row dense;grid-auto-rows:42px;gap:4px!important;align-items:stretch;margin-top:24px}
-.gallery img,.gallery img:first-child{width:100%!important;height:100%!important;min-height:0!important;aspect-ratio:auto!important;object-fit:cover!important;object-position:center center;border-radius:0!important;grid-row:span 4;background:#f4f2f0;display:block}
-.gallery img:nth-child(1){grid-row:span 7;object-position:center 35%}
-.gallery img:nth-child(2){grid-row:span 4}
-.gallery img:nth-child(3){grid-row:span 6}
-.gallery img:nth-child(4){grid-row:span 4}
-.gallery img:nth-child(5){grid-row:span 3}
-.gallery img:nth-child(6){grid-row:span 5}
-.gallery img:nth-child(7){grid-row:span 4}
-.gallery img:nth-child(8){grid-row:span 6}
-.gallery img:nth-child(9){grid-row:span 4}
-.gallery img:nth-child(10){grid-row:span 5}
-.gallery img:nth-child(11){grid-row:span 4}
-.gallery img:nth-child(12){grid-row:span 5}
-.gallery img:nth-child(13){grid-row:span 4}
-.gallery img:nth-child(14){grid-row:span 5}
-@media(max-width:700px){.gallery{grid-auto-rows:clamp(23px,7.4vw,36px);gap:3px!important}}
+/* Precisely bounded two-column collage: both columns end on the same baseline. */
+.gallery{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(34,minmax(0,1fr))!important;grid-auto-flow:row!important;grid-auto-rows:auto!important;gap:3px!important;width:100%;aspect-ratio:0.49;overflow:hidden;align-items:stretch;margin-top:24px}
+.gallery img,.gallery img:first-child{display:block!important;width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;max-width:100%!important;aspect-ratio:auto!important;object-fit:cover!important;object-position:center!important;border-radius:0!important;margin:0!important;align-self:stretch;grid-row:auto}
+.gallery img:first-child{object-position:center 35%!important}
+.gallery img:nth-child(1){grid-column:1!important;grid-row:1/span 7!important}
+.gallery img:nth-child(3){grid-column:1!important;grid-row:8/span 4!important}
+.gallery img:nth-child(5){grid-column:1!important;grid-row:12/span 5!important}
+.gallery img:nth-child(7){grid-column:1!important;grid-row:17/span 4!important}
+.gallery img:nth-child(9){grid-column:1!important;grid-row:21/span 5!important}
+.gallery img:nth-child(11){grid-column:1!important;grid-row:26/span 4!important}
+.gallery img:nth-child(13){grid-column:1!important;grid-row:30/span 5!important}
+.gallery img:nth-child(2){grid-column:2!important;grid-row:1/span 4!important}
+.gallery img:nth-child(4){grid-column:2!important;grid-row:5/span 6!important}
+.gallery img:nth-child(6){grid-column:2!important;grid-row:11/span 4!important}
+.gallery img:nth-child(8){grid-column:2!important;grid-row:15/span 5!important}
+.gallery img:nth-child(10){grid-column:2!important;grid-row:20/span 5!important}
+.gallery img:nth-child(12){grid-column:2!important;grid-row:25/span 5!important}
+.gallery img:nth-child(14){grid-column:2!important;grid-row:30/span 5!important}
+@media(min-width:701px){.gallery{aspect-ratio:0.68}}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 <script>
