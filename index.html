@@ -556,7 +556,9 @@ html,body{background:#283527}
 .gallery img:nth-child(12){grid-column:2!important;grid-row:36/span 7!important}
 .gallery img:nth-child(14){grid-column:2!important;grid-row:43/span 6!important}
 .gallery img:nth-child(1),.gallery img:nth-child(4),.gallery img:nth-child(7),.gallery img:nth-child(10){object-position:center 32%!important}
-.gallery img:nth-child(3),.gallery img:nth-child(11){object-position:center 24%!important}
+.gallery img:nth-child(3){object-position:center 24%!important}
+/* The 11th image is the groom portrait: anchor the crop near the top to keep his face visible. */
+.gallery img:nth-child(11){object-position:center 8%!important}
 @media(min-width:701px){.gallery{aspect-ratio:0.48;gap:5px!important}}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
