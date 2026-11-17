@@ -505,6 +505,18 @@ html,body{background:#283527}
 .guestbook-editor label{display:block;font-size:12px;margin-bottom:8px}
 .guestbook-editor input,.guestbook-editor textarea{display:block;width:100%;margin-top:6px;padding:10px;border:1px solid #ded7cf;border-radius:6px;font:inherit;font-size:13px}
 .guestbook-editor>p{font-size:12px}
+
+/* Keep history photographs readable on narrow Android browsers. */
+.history-timeline{width:100%;max-width:390px;box-sizing:border-box;padding:0 6px}
+.history-item{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;min-width:0}
+.history-photo{width:100%;min-width:0;overflow:visible}
+.history-photo img{width:min(100%,145px);max-width:145px;height:auto;aspect-ratio:1/1;flex:0 1 auto;object-fit:cover}
+.history-photo img.wedding-arch-photo{aspect-ratio:3/4}
+@media(max-width:380px){
+ .history-timeline{padding:0 3px}
+ .history-item{gap:12px;min-height:132px}
+ .history-photo img{width:min(100%,128px);max-width:128px}
+}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 </head>
