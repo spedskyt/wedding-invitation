@@ -624,6 +624,17 @@ html,body{background:#283527}
 .postcard-reveal{animation:postcard-photo-reveal .6s 3.2s ease-out forwards!important}
 .postcard-envelope{animation:postcard-envelope-exit .6s 3.2s ease forwards!important}
 @media(prefers-reduced-motion:reduce){.postcard-envelope{display:none!important}.postcard-reveal{animation:none!important;opacity:1!important}}
+
+/* Material finish calibrated to the reference frame: linen burgundy and cotton rag paper. */
+.postcard-envelope{background:#4a0b17!important}
+.postcard-envelope:before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.26;background-image:repeating-linear-gradient(90deg,#19030944 0 1px,transparent 1px 4px),repeating-linear-gradient(0deg,#b26b691c 0 1px,transparent 1px 5px);mix-blend-mode:soft-light}
+.postcard-flap{top:18%!important;height:38vh!important;background:linear-gradient(155deg,#6c202c 0%,#5d1927 60%,#45101d 100%)!important;filter:drop-shadow(5px 8px 5px #22020c99)!important}
+.postcard-letter{top:49%!important;height:40vh!important;min-height:245px!important;width:82vw!important;max-width:430px!important;background:#f0f0ee!important;clip-path:polygon(0 3%,2% 2%,4% 2.8%,7% 1.4%,10% 2.2%,14% 1%,18% 1.8%,22% 1%,26% 2%,31% 1%,35% 1.7%,39% .6%,44% 1.4%,49% .7%,54% 1.6%,59% .7%,64% 1.6%,69% .8%,74% 1.7%,79% .8%,84% 1.9%,89% 1.1%,94% 2.1%,98% 1.5%,100% 4%,99% 10%,100% 16%,99% 22%,100% 28%,99% 35%,100% 43%,99% 52%,100% 61%,99% 70%,100% 79%,99% 88%,100% 97%,0 97%,1% 88%,0 78%,1% 69%,0 59%,1% 49%,0 39%,1% 29%,0 19%,1% 10%)!important;box-shadow:0 6px 16px #15040b55!important;padding-bottom:3vh!important}
+.postcard-letter:before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(88deg,#85827d09 0 1px,transparent 1px 3px),repeating-linear-gradient(3deg,#a9a49c0c 0 1px,transparent 1px 5px),radial-gradient(ellipse at 45% 38%,#fff9 0%,transparent 70%);mix-blend-mode:multiply}
+.postcard-letter:after{content:"";position:absolute;inset:0;box-shadow:inset 3px 4px 12px #5f5c5622,inset -3px -2px 9px #77736c15;pointer-events:none}
+.postcard-pocket{top:61%!important;inset:61% 0 0!important;clip-path:polygon(0 0,50% 61%,100% 0,100% 100%,0 100%)!important;background:linear-gradient(130deg,#762534 0%,#5a1424 56%,#3c0c1a 100%)!important}
+.postcard-pocket:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,#23040b22 0 1px,transparent 1px 5px);opacity:.35}
+.postcard-seal{top:83%!important;width:68px!important;height:68px!important;border:5px solid #8d0c20!important;box-shadow:0 5px 9px #21040caa,inset 0 0 0 3px #5b0819,inset 0 0 8px #250009!important;background:radial-gradient(circle at 32% 23%,#c23544 0%,#9b1128 36%,#640716 75%,#4d0412 100%)!important;color:#480713!important;text-shadow:0 1px #d45b6588!important}
 </style>
 <!-- Trigger Cloudflare Pages build for latest hero layout -->
 <script>
